@@ -11,6 +11,8 @@ export (int) var jump_distance = 100
 var gravity = 0
 var initial_jump_y_speed = 0
 
+var is_right = true
+
 # player's current velocity
 var velocity = Vector2()
 
@@ -25,11 +27,16 @@ func get_input():
 	velocity.x = 0
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += x_speed
+		is_right = true
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= x_speed
+		is_right = false
 	if is_on_floor() and Input.is_action_pressed("ui_select"):
 		velocity.y += initial_jump_y_speed
+	if Input.is_action_just_pressed("ui_action"):
+		shoot()
 	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -41,3 +48,23 @@ func _physics_process(delta):
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)
 	velocity = move_and_slide(velocity, Vector2(0, -1), true)
+
+func shoot():
+	#spawn a projectile
+	
+	var projectile = load("res://Projectile.tscn")
+	var bullet = projectile.instance()
+	bullet.transform.origin = self.transform.origin
+	
+	
+	var orb = bullet.get_child(0)
+	var bouncer = orb.get_child(0)
+	if is_right:
+		bouncer.velocity.x = 200
+		bullet.transform.origin.x += 64
+		
+	else:
+		bouncer.velocity.x = -200
+		bullet.transform.origin.x -= 64
+	get_tree().get_root().get_node("TestLevel").add_child(bullet)
+	

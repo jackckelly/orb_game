@@ -252,19 +252,19 @@ extents = Vector2( 31.6245, 31.9955 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 25 )
 format = 1
-tile_data = PoolIntArray( 327680, 0, 65537, 327695, 0, 65536, 393216, 0, 131073, 393217, 0, 65537, 393230, 0, 65536, 393231, 0, 131074, 458753, 0, 131075, 458754, 0, 5, 458755, 0, 5, 458756, 0, 5, 458757, 0, 5, 458758, 0, 5, 458759, 0, 5, 458760, 0, 5, 458761, 0, 5, 458762, 0, 5, 458763, 0, 5, 458764, 0, 5, 458765, 0, 5, 458766, 0, 131074 )
+tile_data = PoolIntArray( 327680, 0, 65537, 327687, 0, 131072, 327695, 0, 65536, 393216, 0, 131073, 393217, 0, 65537, 393223, 0, 131072, 393230, 0, 65536, 393231, 0, 131074, 458753, 0, 131075, 458754, 0, 5, 458755, 0, 5, 458756, 0, 5, 458757, 0, 5, 458758, 0, 5, 458759, 0, 5, 458760, 0, 5, 458761, 0, 5, 458762, 0, 5, 458763, 0, 5, 458764, 0, 5, 458765, 0, 5, 458766, 0, 131074 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Olauer" type="KinematicBody2D" parent="."]
 position = Vector2( 160.958, 405.281 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+[node name="Sprite" type="Sprite" parent="Olauer"]
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Olauer"]
 shape = SubResource( 26 )
 __meta__ = {
 "_edit_group_": true

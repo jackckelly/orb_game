@@ -67,5 +67,5 @@ func shoot():
 	else:
 		bouncer.velocity.x = -200
 		bullet.transform.origin.x -= 64
-	get_tree().get_root().get_node("TestLevel").add_child(bullet)
+	get_tree().get_root().get_child(0).add_child(bullet)
 	

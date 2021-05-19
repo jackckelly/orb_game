@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
 # the running speed
-export (int) var x_speed = 200
+export (int) var x_speed = 300
 # the height of a jump at its apex
-export (int) var jump_height = 200
+export (int) var jump_height = 64 * 3
 # the x distance of a jump at its apex
-export (int) var jump_distance = 100
+export (int) var jump_distance = 64 * 2
 
 # these physics variables will be set in _ready
 var gravity = 0
@@ -23,8 +23,9 @@ func _ready():
 	initial_jump_y_speed = -2 * jump_height * x_speed
 	initial_jump_y_speed /= jump_distance
 
-func get_input():
-	velocity.x = 0
+func get_input(delta):
+	
+	velocity.x = get_floor_velocity().x /200
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += x_speed
 		is_right = true
@@ -43,7 +44,7 @@ func get_input():
 #	pass
 
 func _physics_process(delta):
-	get_input()
+	get_input(delta)
 	velocity.y += gravity * delta
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)

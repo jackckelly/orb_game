@@ -61,10 +61,10 @@ func shoot():
 
 	var bouncer = orb.get_child(0)
 	if is_right:
-		bouncer.velocity.x = 200
+		bouncer.velocity.x = 1
 		orb.transform.origin.x += 64
 	else:
-		bouncer.velocity.x = -200
+		bouncer.velocity.x = -1
 		orb.transform.origin.x -= 64
 	get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
 

@@ -11,7 +11,8 @@ export var velocity = Vector2()
 
 func _ready():
 	print("Shooting projectile")
-	#velocity.x = 50
+
+	velocity.x *= 64 * 8
 
 
 func _physics_process(delta):
@@ -25,3 +26,7 @@ func _physics_process(delta):
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())
+
+
+func _on_MovementTimer_timeout():
+	velocity.x = 64 * 4

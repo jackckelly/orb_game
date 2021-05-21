@@ -28,3 +28,8 @@ __meta__ = {
 current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

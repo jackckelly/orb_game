@@ -3,7 +3,7 @@
 [ext_resource path="res://WinCondition.gd" type="Script" id=1]
 [ext_resource path="res://abstract-platformer-370-assets/PNG/Items/blueCrystal.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.7543, 35.7957 )
 
 [node name="WinCondition" type="Area2D"]
@@ -17,7 +17,7 @@ __meta__ = {
 nextLevel = "Level2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 26 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

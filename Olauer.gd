@@ -10,7 +10,7 @@ export (int) var jump_distance = 64 * 2
 # these physics variables will be set in _ready
 var gravity = 0
 var initial_jump_y_speed = 0
-
+var can_shoot = true
 var is_right = true
 
 # player's current velocity
@@ -34,7 +34,7 @@ func get_input(delta):
 		is_right = false
 	if is_on_floor() and Input.is_action_pressed("ui_select"):
 		velocity.y += initial_jump_y_speed
-	if Input.is_action_just_pressed("ui_action"):
+	if Input.is_action_just_pressed("ui_action") and can_shoot:
 		shoot()
 	
 
@@ -51,21 +51,25 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1), true)
 
 func shoot():
-	#spawn a projectile
+	can_shoot = false
+	get_node("CooldownTimer").start()
 	
 	var projectile = load("res://Orb.tscn")
-	var bullet = projectile.instance()
-	bullet.transform.origin = self.transform.origin
+	var orb = projectile.instance()
+	orb.transform.origin = self.transform.origin
 	
-	
-	var orb = bullet.get_child(0)
+
 	var bouncer = orb.get_child(0)
 	if is_right:
 		bouncer.velocity.x = 200
-		bullet.transform.origin.x += 64
-		
+		orb.transform.origin.x += 64
 	else:
 		bouncer.velocity.x = -200
-		bullet.transform.origin.x -= 64
-	get_tree().get_root().get_child(0).add_child(bullet)
-	
+		orb.transform.origin.x -= 64
+	get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
+
+
+
+func _on_CooldownTimer_timeout():
+	can_shoot = true
+	# maybe disable the timer?

@@ -8,25 +8,24 @@ extends KinematicBody2D
 
 # Called when the node enters the scene tree for the first time.
 export var velocity = Vector2()
+var accel_elapsed = 0
+export var accel_total_duration = 0.3
 
 func _ready():
 	print("Shooting projectile")
 
-	velocity.x *= 64 * 8
-
-
 func _physics_process(delta):
+	# set velocity
+	accel_elapsed += delta
+	var speed = lerp (64 * 12, 64 * 4, clamp(accel_elapsed / accel_total_duration, 0, 1))
+	velocity = velocity.normalized() * speed
+	
 	var collide = move_and_collide(velocity * delta)
 	if collide and not collide.get_collider().name == "Olauer":
 		velocity = velocity.bounce(collide.normal)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())
 
-
-func _on_MovementTimer_timeout():
-	velocity.x = 64 * 4
+#func _on_MovementTimer_timeout():
+#	velocity.x = 64 * 4

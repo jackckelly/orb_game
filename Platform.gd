@@ -9,7 +9,7 @@ var bouncer = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bouncer = get_parent().get_node("bouncer")
+	bouncer = get_parent().get_node("Bouncer")
 	pass # Replace with function body.
 
 

@@ -8,10 +8,10 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("body_entered", self, "win")
+	connect("body_entered", self, "on_body_entered")
 	pass # Replace with function body.
 
-func win(body):
+func on_body_entered(body):
 	
 	get_tree().change_scene("res://Level2.tscn")
 

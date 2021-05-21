@@ -53,7 +53,7 @@ func _physics_process(delta):
 func shoot():
 	#spawn a projectile
 	
-	var projectile = load("res://Projectile.tscn")
+	var projectile = load("res://Orb.tscn")
 	var bullet = projectile.instance()
 	bullet.transform.origin = self.transform.origin
 	

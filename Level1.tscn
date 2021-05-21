@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://WinCondition.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://player_movement.gd" type="Script" id=4]
+[ext_resource path="res://Olauer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://abstract-platformer-370-assets/PNG/Items/blueCrystal.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -249,9 +248,6 @@ points = PoolVector2Array( 0, 64, 0, 64, 0, 0, 64, 0 )
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 30.7543, 35.7957 )
 
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 31.6245, 31.9955 )
-
 [node name="Level 1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -276,25 +272,5 @@ shape = SubResource( 26 )
 [node name="Sprite" type="Sprite" parent="WinCondition"]
 texture = ExtResource( 5 )
 
-[node name="Olauer" type="KinematicBody2D" parent="."]
-position = Vector2( 160.958, 405.281 )
-collision_layer = 34
-collision_mask = 6
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Olauer"]
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Olauer"]
-shape = SubResource( 27 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Camera2D" type="Camera2D" parent="Olauer"]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+[node name="Olauer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 162.901, 405.127 )

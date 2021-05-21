@@ -5,7 +5,6 @@
 [ext_resource path="res://abstract-platformer-370-assets/PNG/Items/discRed.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 17.0179
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17, 17 )

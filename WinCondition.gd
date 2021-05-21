@@ -12,7 +12,6 @@ func _ready():
 	pass # Replace with function body.
 
 func on_body_entered(body):
-	
 	get_tree().change_scene("res://" + nextLevel + ".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

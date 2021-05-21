@@ -24,7 +24,8 @@ func _ready():
 	initial_jump_y_speed /= jump_distance
 
 func get_input(delta):
-	
+	if Input.is_action_just_pressed("ui_restart"):
+		restart()
 	velocity.x = get_floor_velocity().x /200
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += x_speed
@@ -49,6 +50,10 @@ func _physics_process(delta):
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)
 	velocity = move_and_slide(velocity, Vector2(0, -1), true)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name == "KillZone":
+			restart()
 
 func shoot():
 	can_shoot = false
@@ -68,7 +73,8 @@ func shoot():
 		orb.transform.origin.x -= 64
 	get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
 
-
+func restart():
+	get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_CooldownTimer_timeout():
 	can_shoot = true

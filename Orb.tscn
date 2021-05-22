@@ -2,12 +2,13 @@
 
 [ext_resource path="res://Bouncer.gd" type="Script" id=1]
 [ext_resource path="res://Platform.gd" type="Script" id=2]
-[ext_resource path="res://abstract-platformer-370-assets/PNG/Items/discRed.png" type="Texture" id=3]
+[ext_resource path="res://Enjl-Dark Halls Tileset/orb.jpg" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 8.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 17, 17 )
+extents = Vector2( 8, 8 )
 
 [node name="Orb" type="Node2D"]
 
@@ -17,6 +18,7 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncer"]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="Bouncer"]
 texture = ExtResource( 3 )

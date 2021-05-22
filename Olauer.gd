@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
 # the running speed
-export (int) var x_speed = 300
+export (int) var x_speed = 300 / 4
 # the height of a jump at its apex
-export (int) var jump_height = 64 * 3
+export (int) var jump_height = 16 * 3
 # the x distance of a jump at its apex
-export (int) var jump_distance = 64 * 2
+export (int) var jump_distance = 16 * 2
 
 # these physics variables will be set in _ready
 var gravity = 0
@@ -67,10 +67,10 @@ func shoot():
 	var bouncer = orb.get_child(0)
 	if is_right:
 		bouncer.velocity.x = 1
-		orb.transform.origin.x += 64
+		orb.transform.origin.x += 16
 	else:
 		bouncer.velocity.x = -1
-		orb.transform.origin.x -= 64
+		orb.transform.origin.x -= 16
 	get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
 
 func restart():

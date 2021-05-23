@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://WinCondition.tscn" type="PackedScene" id=2]
@@ -77,6 +77,27 @@ points = PoolVector2Array( 16, 16, 0, 8, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
 points = PoolVector2Array( 16, 8, 8, 4, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 16, 0, 16, 0, 16, 16, 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 0, 16, 0, 16, 0, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+points = PoolVector2Array( 0, 16, 16, 16, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 16, 16, 16, 16, 16, 16, 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 16, 16, 16, 16, 16, 16, 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 16, 0, 16, 0, 16, 16, 16, 16 )
 
 [sub_resource type="TileSet" id=25]
 resource_local_to_scene = true
@@ -419,26 +440,50 @@ resource_local_to_scene = true
 "one_way_margin": 1.0,
 "shape": SubResource( 24 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 13, 10 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 12, 7 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 12, 6 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 29 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 7 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 7 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 8 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
-
-[sub_resource type="GDScript" id=26]
-script/source = "extends TileMap
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
 
 [node name="Level 1" type="Node2D"]
 
@@ -449,21 +494,27 @@ cell_quadrant_size = 4
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 131069, -536870910, 3, 131070, -536870910, 3, 131071, -536870910, 3, 65536, -536870910, 3, 65537, -536870910, 3, 65538, -536870910, 3, 65539, -536870910, 3, 65540, -536870910, 3, 65541, -536870910, 3, 65542, -536870910, 3, 65543, -536870910, 3, 65544, -536870910, 3, 65545, -536870910, 3, 65546, -536870910, 3, 65547, -536870910, 3, 65548, -536870910, 3, 65549, -536870910, 3, 65550, -536870910, 3, 65551, -536870910, 3, 65552, -536870910, 3, 65553, -536870910, 3, 65554, -536870910, 3, 65555, -536870910, 3, 196605, -536870910, 3, 131091, -536870910, 3, 262141, -536870910, 3, 196627, -536870910, 3, 327677, -536870910, 3, 262163, -536870910, 3, 327699, -536870910, 3, 393235, -536870910, 3, 458771, -536870910, 3, 589821, -536870910, 3, 524307, -536870910, 3, 655357, -536870910, 3, 589843, -536870910, 3, 720893, -536870910, 3, 720894, -536870910, 3, 720895, -536870910, 3, 655360, -536870910, 3, 655361, -536870910, 3, 655362, -536870910, 3, 655374, -536870910, 3, 655375, -536870910, 3, 655376, -536870910, 3, 655377, -536870910, 3, 655378, -536870910, 3, 655379, -536870910, 3 )
+tile_data = PoolIntArray( 393213, 2, 3, 393214, 2, 3, 393215, 2, 3, 327680, 2, 3, 327681, 2, 3, 327682, 2, 3, 327683, 2, 3, 327684, 2, 3, 327685, 2, 3, 327686, 2, 3, 327687, 2, 3, 327688, 2, 3, 327689, 2, 3, 327690, 2, 3, 327691, 2, 3, 458749, 2, 3, 393227, 2, 3, 524285, 2, 3, 458763, 2, 3, 589821, -536870910, 3, 524299, 2, 3, 655357, -536870910, 3, 589835, 2, 3, 720893, -536870910, 3, 720894, -536870910, 3, 720895, -536870910, 3, 655360, -536870910, 3, 655361, -536870910, 3, 655367, 2, 3, 655368, 2, 3, 655369, 2, 3, 655370, 2, 3, 655371, 2, 3 )
 
 [node name="KillZone" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 25 )
+cell_size = Vector2( 16, 16 )
 collision_layer = 4
 collision_mask = 32
 format = 1
-tile_data = PoolIntArray( 524292, 1, 0, 524298, 1, 0, 589828, 1, 0, 589834, 1, 0, 655364, 1, 0, 655370, 1, 0, 720900, 1, 0, 720906, 1, 0, 786436, 1, 0, 786442, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0 )
-script = SubResource( 26 )
+tile_data = PoolIntArray( 786429, 2, 9, 720907, 2, 9, 851965, 2, 9, 786443, 2, 9, 917501, 2, 9, 851979, 2, 9, 983037, 2, 9, 983038, 2, 9, 983039, 2, 9, 917504, 2, 9, 917505, 2, 9, 917506, 2, 9, 917507, 2, 9, 917508, 2, 9, 917509, 2, 9, 917510, 2, 9, 917511, 2, 9, 917512, 2, 9, 917513, 2, 9, 917514, 2, 9, 917515, 2, 9 )
 
 [node name="WinCondition" parent="." instance=ExtResource( 2 )]
-position = Vector2( 272.734, 125.309 )
+position = Vector2( 152, 152 )
 
 [node name="Olauer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 11.7027, 121.584 )
+position = Vector2( -8, 152 )
 
 [node name="OrbManager" type="Node2D" parent="."]
 script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 72, 120 )
+current = true
+zoom = Vector2( 0.5, 0.5 )

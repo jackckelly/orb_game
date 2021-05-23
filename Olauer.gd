@@ -10,18 +10,30 @@ export (int) var jump_distance = 16 * 2
 # these physics variables will be set in _ready
 var gravity = 0
 var initial_jump_y_speed = 0
+var terminal_velocity = 0
+
+# variables for the shooting mechanic
 var can_shoot = true
 var is_right = true
 
 # player's current velocity
 var velocity = Vector2()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# we calculate the acceleration due to gravity
+	# as a function of the max jump height and
+	# max jump x distance.
 	gravity = 2 * jump_height * (x_speed * x_speed)
 	gravity /= (jump_distance * jump_distance)
+
+	# same with the initial jump speed.
 	initial_jump_y_speed = -2 * jump_height * x_speed
 	initial_jump_y_speed /= jump_distance
+	
+	# the terminal velocity is just set to be twice
+	# the initial jump speed. This could also just
+	# be an independent parameter.
+	terminal_velocity = -2 * initial_jump_y_speed
 
 func get_input(delta):
 	if Input.is_action_just_pressed("ui_restart"):
@@ -47,6 +59,11 @@ func get_input(delta):
 func _physics_process(delta):
 	get_input(delta)
 	velocity.y += gravity * delta
+	
+	# don't exceed terminal velocity
+	# (now, just a function of the jump velocity)
+	velocity.y = clamp(velocity.y, -terminal_velocity, terminal_velocity)
+
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)
 	velocity = move_and_slide(velocity, Vector2(0, -1), true)

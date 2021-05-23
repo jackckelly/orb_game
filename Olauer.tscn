@@ -25,12 +25,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.25, 0.25 )
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.1
 

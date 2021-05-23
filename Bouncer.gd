@@ -12,7 +12,8 @@ var accel_elapsed = 0
 export var accel_total_duration = 0.3
 
 func _ready():
-	print("Shooting projectile")
+	pass
+	#print("Shooting projectile")
 
 func _physics_process(delta):
 	# set velocity

@@ -485,7 +485,7 @@ resource_local_to_scene = true
 } ]
 2/z_index = 0
 
-[node name="Level 2" type="Node2D"]
+[node name="Level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 32 )

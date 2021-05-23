@@ -100,7 +100,6 @@ points = PoolVector2Array( 16, 16, 16, 16, 16, 16, 16, 16 )
 points = PoolVector2Array( 16, 0, 16, 0, 16, 16, 16, 16 )
 
 [sub_resource type="TileSet" id=32]
-resource_local_to_scene = true
 0/name = "test"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -511,7 +510,7 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 1245196, 2, 65540, 1245197, 2, 65540, 1245198, 2, 65540, 1245199, 2, 65540, 1245200, 2, 65540, 1245201, 2, 65540, 1245202, 2, 65540, 1245203, 2, 65540 )
+tile_data = PoolIntArray( 1114126, 2, 65540, 1114127, 2, 65540, 1114128, 2, 65540, 1179656, 2, 393224, 1179664, 2, 65540, 1245198, 2, 65540, 1245199, 2, 65540, 1245200, 2, 65540, 1769480, 2, 196616, 1835028, 2, 65539, 1835029, 2, 65539, 1835030, 2, 65539 )
 
 [node name="KillZone" type="TileMap" parent="."]
 visible = false
@@ -524,11 +523,11 @@ tile_data = PoolIntArray( 851972, 2, 9, 851973, 2, 9, 851974, 2, 9, 851975, 2, 9
 script = SubResource( 33 )
 
 [node name="WinCondition" parent="." instance=ExtResource( 1 )]
-position = Vector2( 408, 312 )
+position = Vector2( 344, 440 )
 nextLevel = "Level5"
 
 [node name="Olauer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 200, 408 )
+position = Vector2( 248, 296 )
 
 [node name="OrbManager" type="Node2D" parent="."]
 script = ExtResource( 3 )

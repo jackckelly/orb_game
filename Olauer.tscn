@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.6245, 31.9955 )
+extents = Vector2( 29.7392, 30.3521 )
 
 [node name="Olauer" type="KinematicBody2D"]
 position = Vector2( 160.958, 405.281 )

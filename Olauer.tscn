@@ -8,6 +8,7 @@ extents = Vector2( 31.6245, 31.9955 )
 
 [node name="Olauer" type="KinematicBody2D"]
 position = Vector2( 160.958, 405.281 )
+scale = Vector2( 0.25, 0.25 )
 collision_layer = 34
 collision_mask = 6
 script = ExtResource( 1 )
@@ -23,11 +24,6 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.1

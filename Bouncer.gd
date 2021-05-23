@@ -12,12 +12,13 @@ var accel_elapsed = 0
 export var accel_total_duration = 0.3
 
 func _ready():
-	print("Shooting projectile")
+	pass
+	#print("Shooting projectile")
 
 func _physics_process(delta):
 	# set velocity
 	accel_elapsed += delta
-	var speed = lerp (64 * 12, 64 * 4, clamp(accel_elapsed / accel_total_duration, 0, 1))
+	var speed = lerp (16 * 12, 16 * 4, clamp(accel_elapsed / accel_total_duration, 0, 1))
 	velocity = velocity.normalized() * speed
 	
 	var collide = move_and_collide(velocity * delta)

@@ -22,8 +22,12 @@ func _physics_process(delta):
 	velocity = velocity.normalized() * speed
 	
 	var collide = move_and_collide(velocity * delta)
-	if collide and not collide.get_collider().name == "Olauer":
-		velocity = velocity.bounce(collide.normal)
+	if collide:
+		if collide.get_collider().name == "Absorb Blocks":
+			#note: this should have a separate animation
+			get_parent().get_parent().remove_child(get_parent())
+		elif not collide.get_collider().name == "Olauer":
+			velocity = velocity.bounce(collide.normal)
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())

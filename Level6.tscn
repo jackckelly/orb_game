@@ -522,7 +522,7 @@ tile_data = PoolIntArray( 589825, 2, 9, 589826, 2, 9, 589827, 2, 9, 589828, 2, 9
 script = SubResource( 33 )
 
 [node name="WinCondition" parent="." instance=ExtResource( 1 )]
-position = Vector2( 419.142, 385.999 )
+position = Vector2( 424, 392 )
 nextLevel = "Level7"
 
 [node name="Olauer" parent="." instance=ExtResource( 2 )]

@@ -71,6 +71,8 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "KillZone":
 			restart()
+		if collision.collider.name == "Spikes":
+			restart()
 
 func shoot():
 	can_shoot = false

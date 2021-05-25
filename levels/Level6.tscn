@@ -3,8 +3,8 @@
 [ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://Enjl-Dark Halls Tileset/tileset.png" type="Texture" id=2]
 [ext_resource path="res://scripts/OrbManager.gd" type="Script" id=3]
-[ext_resource path="res://Olauer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://WinCondition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://prefabs/Olauer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/WinCondition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -513,6 +513,7 @@ format = 1
 tile_data = PoolIntArray( 1114124, 2, 65540, 1114125, 2, 65540, 1114126, 2, 65540, 1114127, 2, 65540, 1114128, 2, 65540, 1114129, 2, 65540, 1114130, 2, 65540, 1114131, 2, 65540, 1114132, 2, 65540, 1114137, 2, 65540, 1114138, 2, 65540, 1114139, 2, 65540, 1179660, 2, 65540, 1179661, 2, 393224, 1179668, 2, 393223, 1179675, 2, 65540, 1245211, 2, 65540, 1310747, 2, 65540, 1376283, 2, 65540, 1441819, 2, 65540, 1507355, 2, 65540, 1572876, 2, 65540, 1572877, 2, 196616, 1572891, 2, 65540, 1638412, 2, 65540, 1638413, 2, 65539, 1638414, 2, 65539, 1638415, 2, 65539, 1638416, 2, 65539, 1638417, 2, 65539, 1638418, 2, 196616, 1638425, 2, 65540, 1638426, 2, 65540, 1638427, 2, 65540, 1703954, 2, 65540, 1703955, 2, 196616 )
 
 [node name="KillZone" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 32 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 4

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Bouncer.gd" type="Script" id=1]
-[ext_resource path="res://Platform.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Bouncer.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Platform.gd" type="Script" id=2]
 [ext_resource path="res://Enjl-Dark Halls Tileset/orb.jpg" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -9,6 +9,9 @@ radius = 7.2659
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.15236, 6.80743 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
 
 [node name="Orb" type="Node2D"]
 
@@ -28,6 +31,14 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource( 2 )
+
+[node name="Effector" type="KinematicBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Effector"]
+shape = SubResource( 3 )
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 10.0

@@ -9,10 +9,9 @@ export var nextLevel = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("body_entered", self, "on_body_entered")
-	pass # Replace with function body.
 
 func on_body_entered(body):
-	get_tree().change_scene("res://" + nextLevel + ".tscn")
+	get_tree().change_scene("res://levels/" + nextLevel + ".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

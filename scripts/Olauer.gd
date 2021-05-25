@@ -67,9 +67,13 @@ func get_input(delta):
 
 	velocity.x += dvx
 
-	if is_on_floor() and Input.is_action_pressed("ui_select"):
+	if is_on_floor() and Input.is_action_just_pressed("ui_select"):
 		velocity.y += initial_jump_y_speed
 		set_animation("jump_up")
+	
+	if Input.is_action_just_released("ui_select") and velocity.y < 0:
+		velocity.y = 0
+	
 	if Input.is_action_just_pressed("ui_action") and can_shoot:
 		shoot()
 

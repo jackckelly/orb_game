@@ -78,7 +78,7 @@ func shoot():
 	can_shoot = false
 	get_node("CooldownTimer").start()
 	
-	var projectile = load("res://Orb.tscn")
+	var projectile = load("res://prefabs/Orb.tscn")
 	var orb = projectile.instance()
 	orb.transform.origin = self.transform.origin
 	

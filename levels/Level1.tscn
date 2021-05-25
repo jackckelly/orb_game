@@ -1,10 +1,10 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://WinCondition.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Olauer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://OrbManager.gd" type="Script" id=3]
-[ext_resource path="res://Enjl-Dark Halls Tileset/tileset.png" type="Texture" id=4]
-[ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=5]
+[ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
+[ext_resource path="res://Enjl-Dark Halls Tileset/tileset.png" type="Texture" id=2]
+[ext_resource path="res://scripts/OrbManager.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/Olauer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/WinCondition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -102,7 +102,7 @@ points = PoolVector2Array( 16, 0, 16, 0, 16, 16, 16, 16 )
 [sub_resource type="TileSet" id=32]
 resource_local_to_scene = true
 0/name = "test"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 64, 0, 512, 192 )
@@ -268,7 +268,7 @@ resource_local_to_scene = true
 } ]
 0/z_index = 0
 1/name = "KILL"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 384, 64, 64 )
@@ -289,7 +289,7 @@ resource_local_to_scene = true
 } ]
 1/z_index = 0
 2/name = "tileset.png 2"
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 2 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 240, 192 )
@@ -485,33 +485,32 @@ resource_local_to_scene = true
 } ]
 2/z_index = 0
 
-[sub_resource type="GDScript" id=33]
-script/source = "extends TileMap
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
-
 [node name="Level" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Bouncing Blocks" type="TileMap" parent="."]
 tile_set = SubResource( 32 )
 cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 1245191, 2, 65540, 1310727, 2, 65540, 1310738, 2, 65539, 1310739, 2, 65539, 1310740, 2, 65539, 1310741, 2, 65539, 1310742, 2, 65539, 1310743, 2, 65539, 1310744, 2, 65539, 1310745, 2, 65539, 1376263, 2, 65540, 1441799, 2, 65540, 1507335, 2, 65540, 1572871, 2, 65540, 1638407, 2, 65539, 1703943, 2, 65539, 1703944, 2, 65539, 1703945, 2, 65539, 1703946, 2, 65539, 1703947, 2, 65539, 1703948, 2, 65539, 1703949, 2, 65539, 1703950, 2, 65539, 1703951, 2, 65539, 1703952, 2, 65539, 1703953, 2, 65539 )
+tile_data = PoolIntArray( 393213, 2, 3, 393214, 2, 3, 393215, 2, 3, 327680, 2, 3, 327681, 2, 3, 327682, 2, 3, 327683, 2, 3, 327684, 2, 3, 327685, 2, 3, 327686, 2, 3, 327687, 2, 3, 327688, 2, 3, 327689, 2, 3, 327690, 2, 3, 327691, 2, 3, 458749, 2, 3, 393227, 2, 3, 524285, 2, 3, 458763, 2, 3, 589821, -536870910, 3, 524299, 2, 3, 655357, -536870910, 3, 589835, 2, 3, 720893, -536870910, 3, 720894, -536870910, 3, 720895, -536870910, 3, 655360, -536870910, 3, 655361, -536870910, 3, 655367, 2, 3, 655368, 2, 3, 655369, 2, 3, 655370, 2, 3, 655371, 2, 3 )
+
+[node name="Passing Blocks" type="TileMap" parent="."]
+tile_set = SubResource( 32 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+format = 1
+tile_data = PoolIntArray( 393213, 2, 3, 393214, 2, 3, 393215, 2, 3, 327680, 2, 3, 327681, 2, 3, 327682, 2, 3, 327683, 2, 3, 327684, 2, 3, 327685, 2, 3, 327686, 2, 3, 327687, 2, 3, 327688, 2, 3, 327689, 2, 3, 327690, 2, 3, 327691, 2, 3, 458749, 2, 3, 393227, 2, 3, 524285, 2, 3, 458763, 2, 3, 589821, -536870910, 3, 524299, 2, 3, 655357, -536870910, 3, 589835, 2, 3, 720893, -536870910, 3, 720894, -536870910, 3, 720895, -536870910, 3, 655360, -536870910, 3, 655361, -536870910, 3, 655367, 2, 3, 655368, 2, 3, 655369, 2, 3, 655370, 2, 3, 655371, 2, 3 )
+
+[node name="Absorb Blocks" type="TileMap" parent="."]
+tile_set = SubResource( 32 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 393213, 2, 3, 393214, 2, 3, 393215, 2, 3, 327680, 2, 3, 327681, 2, 3, 327682, 2, 3, 327683, 2, 3, 327684, 2, 3, 327685, 2, 3, 327686, 2, 3, 327687, 2, 3, 327688, 2, 3, 327689, 2, 3, 327690, 2, 3, 327691, 2, 3, 458749, 2, 3, 393227, 2, 3, 524285, 2, 3, 458763, 2, 3, 589821, -536870910, 3, 524299, 2, 3, 655357, -536870910, 3, 589835, 2, 3, 720893, -536870910, 3, 720894, -536870910, 3, 720895, -536870910, 3, 655360, -536870910, 3, 655361, -536870910, 3, 655367, 2, 3, 655368, 2, 3, 655369, 2, 3, 655370, 2, 3, 655371, 2, 3 )
 
 [node name="KillZone" type="TileMap" parent="."]
 visible = false
@@ -520,20 +519,18 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 4
 collision_mask = 32
 format = 1
-tile_data = PoolIntArray( 851972, 2, 9, 851973, 2, 9, 851974, 2, 9, 851975, 2, 9, 851976, 2, 9, 851977, 2, 9, 851978, 2, 9, 851979, 2, 9, 851980, 2, 9, 851981, 2, 9, 851982, 2, 9, 851983, 2, 9, 851984, 2, 9, 851985, 2, 9, 851986, 2, 9, 851987, 2, 9, 851988, 2, 9, 851989, 2, 9, 851990, 2, 9, 851991, 2, 9, 851992, 2, 9, 851993, 2, 9, 851994, 2, 9, 851995, 2, 9, 851996, 2, 9, 917508, 2, 9, 917532, 2, 9, 983044, 2, 9, 983068, 2, 9, 1048580, 2, 9, 1048604, 2, 9, 1114116, 2, 9, 1114140, 2, 9, 1179652, 2, 9, 1179676, 2, 9, 1245188, 2, 9, 1245212, 2, 9, 1310724, 2, 9, 1310748, 2, 9, 1376260, 2, 9, 1376284, 2, 9, 1441796, 2, 9, 1441820, 2, 9, 1507332, 2, 9, 1507356, 2, 9, 1572868, 2, 9, 1572892, 2, 9, 1638404, 2, 9, 1638428, 2, 9, 1703940, 2, 9, 1703964, 2, 9, 1769476, 2, 9, 1769500, 2, 9, 1835012, 2, 9, 1835036, 2, 9, 1900548, 2, 9, 1900572, 2, 9, 1966084, 2, 9, 1966085, 2, 9, 1966086, 2, 9, 1966087, 2, 9, 1966088, 2, 9, 1966089, 2, 9, 1966090, 2, 9, 1966091, 2, 9, 1966092, 2, 9, 1966093, 2, 9, 1966094, 2, 9, 1966095, 2, 9, 1966096, 2, 9, 1966097, 2, 9, 1966098, 2, 9, 1966099, 2, 9, 1966100, 2, 9, 1966101, 2, 9, 1966102, 2, 9, 1966103, 2, 9, 1966104, 2, 9, 1966105, 2, 9, 1966106, 2, 9, 1966107, 2, 9, 1966108, 2, 9 )
-script = SubResource( 33 )
+tile_data = PoolIntArray( 786429, 2, 9, 720907, 2, 9, 851965, 2, 9, 786443, 2, 9, 917501, 2, 9, 851979, 2, 9, 983037, 2, 9, 983038, 2, 9, 983039, 2, 9, 917504, 2, 9, 917505, 2, 9, 917506, 2, 9, 917507, 2, 9, 917508, 2, 9, 917509, 2, 9, 917510, 2, 9, 917511, 2, 9, 917512, 2, 9, 917513, 2, 9, 917514, 2, 9, 917515, 2, 9 )
 
-[node name="WinCondition" parent="." instance=ExtResource( 1 )]
-position = Vector2( 408, 312 )
-nextLevel = "Level5"
+[node name="WinCondition" parent="." instance=ExtResource( 5 )]
+position = Vector2( 152, 152 )
 
-[node name="Olauer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 200, 408 )
+[node name="Olauer" parent="." instance=ExtResource( 4 )]
+position = Vector2( -8, 152 )
 
 [node name="OrbManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 272, 368 )
+position = Vector2( 72, 120 )
 current = true
 zoom = Vector2( 0.5, 0.5 )

@@ -19,6 +19,9 @@ var is_right = true
 # player's current velocity
 var velocity = Vector2()
 
+# animation
+onready var _animated_sprite = $AnimatedSprite
+
 func _ready():
 	# we calculate the acceleration due to gravity
 	# as a function of the max jump height and
@@ -34,27 +37,41 @@ func _ready():
 	# the initial jump speed. This could also just
 	# be an independent parameter.
 	terminal_velocity = -2 * initial_jump_y_speed
+	
+	# start the animation
+	_animated_sprite.play()
 
 func get_input(delta):
 	if Input.is_action_just_pressed("ui_restart"):
 		restart()
-	velocity.x = get_floor_velocity().x /200
+	velocity.x = get_floor_velocity().x / 200
+	
+	var dvx = 0
+	var old_right_direction = is_right
+	
+	# if both directions are pressed in
+	# the same frame, don't change directions.
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += x_speed
+		dvx += x_speed
 		is_right = true
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= x_speed
+		dvx -= x_speed
 		is_right = false
+	if dvx == 0:
+		is_right = old_right_direction
+		set_animation("idle")
+	else:
+		set_animation("run")
+	# flip if facing left
+	_animated_sprite.flip_h = !is_right
+
+	velocity.x += dvx
+
 	if is_on_floor() and Input.is_action_pressed("ui_select"):
 		velocity.y += initial_jump_y_speed
+		set_animation("jump_up")
 	if Input.is_action_just_pressed("ui_action") and can_shoot:
 		shoot()
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _physics_process(delta):
 	get_input(delta)
@@ -73,15 +90,19 @@ func _physics_process(delta):
 			restart()
 		if collision.collider.name == "Spikes":
 			restart()
+	
+	if velocity.y > 0:
+		set_animation("jump_down")
 
 func shoot():
 	can_shoot = false
 	get_node("CooldownTimer").start()
 	
+	_animated_sprite.play("shoot")
+	
 	var projectile = load("res://prefabs/Orb.tscn")
 	var orb = projectile.instance()
 	orb.transform.origin = self.transform.origin
-	
 
 	var bouncer = orb.get_child(0)
 	if is_right:
@@ -98,3 +119,11 @@ func restart():
 func _on_CooldownTimer_timeout():
 	can_shoot = true
 	# maybe disable the timer?
+
+func set_animation(name):
+	if _animated_sprite.animation != "shoot":
+		_animated_sprite.animation = name
+
+func _on_AnimatedSprite_animation_finished():
+	if _animated_sprite.animation == 'shoot':
+		_animated_sprite.play('idle')

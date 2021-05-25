@@ -29,16 +29,11 @@ func _physics_process(delta):
 			var r = velocity.length()
 			var theta = velocity.angle()
 
-			# print(rad2deg(theta))
 			# round the angle to the nearest multiple of 90 or 45
 			var rounded_theta = round (theta / collision_angle) * collision_angle
-			print(rounded_theta)
-			#print(rad2deg(rounded_theta))
-			# print(cos(rounded_theta))
 
 			# convert back to regular coordinates
 			velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
-			# print(velocity)
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())

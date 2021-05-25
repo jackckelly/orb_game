@@ -1,11 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_resource type="TileSet" load_steps=25 format=2]
 
-[ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
-[ext_resource path="res://Enjl-Dark Halls Tileset/tileset.png" type="Texture" id=2]
-[ext_resource path="res://scripts/OrbManager.gd" type="Script" id=3]
-[ext_resource path="res://prefabs/Olauer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://prefabs/WinCondition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://main_tileset.tres" type="TileSet" id=6]
+[ext_resource path="res://Enjl-Dark Halls Tileset/tileset.png" type="Texture" id=1]
+[ext_resource path="res://abstract-platformer-370-assets/Tilesheet/tilesheet_complete.png" type="Texture" id=2]
+[ext_resource path="res://Blocks-Lines-and-Shapes/Line-And-Shape-16x16-Expanded-Gothic.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -61,10 +58,18 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
-[sub_resource type="TileSet" id=19]
-resource_local_to_scene = true
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[resource]
 0/name = "test"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 64, 0, 512, 192 )
@@ -230,7 +235,7 @@ resource_local_to_scene = true
 } ]
 0/z_index = 0
 1/name = "KILL"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 384, 64, 64 )
@@ -251,7 +256,7 @@ resource_local_to_scene = true
 } ]
 1/z_index = 0
 2/name = "tileset.png 2"
-2/texture = ExtResource( 2 )
+2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 240, 192 )
@@ -476,63 +481,106 @@ resource_local_to_scene = true
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
-
-[node name="Level" type="Node2D"]
-
-[node name="Map" type="Node2D" parent="."]
-
-[node name="Bouncing Blocks" type="TileMap" parent="Map"]
-tile_set = ExtResource( 6 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-tile_data = PoolIntArray( -458767, 3, 65539, 393216, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 458752, 3, 0, 458758, 3, 0, 524288, 3, 0, 524294, 3, 0, 589824, 3, 0, 589830, 3, 0, 655360, 3, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 3, 0, 655366, 3, 0 )
-
-[node name="Passing Blocks" type="TileMap" parent="Map"]
-tile_set = SubResource( 19 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 2
-collision_mask = 2
-format = 1
-
-[node name="Absorb Blocks" type="TileMap" parent="Map"]
-tile_set = SubResource( 19 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-
-[node name="Spikes" type="TileMap" parent="Map"]
-tile_set = SubResource( 19 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-
-[node name="KillZone" type="TileMap" parent="Map"]
-visible = false
-tile_set = ExtResource( 6 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-tile_data = PoolIntArray( -65548, 3, 65539, -65547, 3, 65539, -65546, 3, 65539, -65545, 3, 65539, -65544, 3, 65539, -65543, 3, 65539, -65542, 3, 65539, -65541, 3, 65539, -65540, 3, 65539, -65539, 3, 65539, -65538, 3, 65539, -65537, 3, 65539, -131072, 3, 65539, -131071, 3, 65539, -131070, 3, 65539, -131069, 3, 65539, -131068, 3, 65539, -131067, 3, 65539, -131066, 3, 65539, -131065, 3, 65539, -131064, 3, 65539, -131063, 3, 65539, -131062, 3, 65539, -131061, 3, 65539, -131060, 3, 65539, -131059, 3, 65539, -131058, 3, 65539, -131057, 3, 65539, -131056, 3, 65539, -131055, 3, 65539, -131054, 3, 65539, -131053, 3, 65539, -131052, 3, 65539, -12, 3, 65539, -65516, 3, 65539, 65524, 3, 65539, 20, 3, 65539, 131060, 3, 65539, 65556, 3, 65539, 196596, 3, 65539, 131092, 3, 65539, 262132, 3, 65539, 196628, 3, 65539, 327668, 3, 65539, 262164, 3, 65539, 393204, 3, 65539, 327700, 3, 65539, 458740, 3, 65539, 393236, 3, 65539, 524276, 3, 65539, 458772, 3, 65539, 589812, 3, 65539, 524308, 3, 65539, 655348, 3, 65539, 589844, 3, 65539, 720884, 3, 65539, 655380, 3, 65539, 786420, 3, 65539, 720916, 3, 65539, 851956, 3, 65539, 786452, 3, 65539, 917492, 3, 65539, 851988, 3, 65539, 983028, 3, 65539, 983029, 3, 65539, 983030, 3, 65539, 983031, 3, 65539, 983032, 3, 65539, 983033, 3, 65539, 983034, 3, 65539, 983035, 3, 65539, 983036, 3, 65539, 983037, 3, 65539, 983038, 3, 65539, 983039, 3, 65539, 917504, 3, 65539, 917505, 3, 65539, 917506, 3, 65539, 917507, 3, 65539, 917508, 3, 65539, 917509, 3, 65539, 917510, 3, 65539, 917511, 3, 65539, 917512, 3, 65539, 917513, 3, 65539, 917514, 3, 65539, 917515, 3, 65539, 917516, 3, 65539, 917517, 3, 65539, 917518, 3, 65539, 917519, 3, 65539, 917520, 3, 65539, 917521, 3, 65539, 917522, 3, 65539, 917523, 3, 65539, 917524, 3, 65539, 1048564, 3, 65539, 1048565, 3, 65539, 1048566, 3, 65539, 1048567, 3, 65539, 1048568, 3, 65539, 1048569, 3, 65539, 1048570, 3, 65539, 1048571, 3, 65539, 1048572, 3, 65539, 1048573, 3, 65539, 1048574, 3, 65539, 1048575, 3, 65539, 983040, 3, 65539, 983041, 3, 65539, 983042, 3, 65539, 983043, 3, 65539, 983044, 3, 65539, 983045, 3, 65539, 983046, 3, 65539, 983047, 3, 65539, 983048, 3, 65539, 983049, 3, 65539, 983050, 3, 65539, 983051, 3, 65539, 983052, 3, 65539, 983053, 3, 65539, 983054, 3, 65539, 983055, 3, 65539, 983056, 3, 65539, 983057, 3, 65539, 983058, 3, 65539, 983059, 3, 65539, 983060, 3, 65539 )
-
-[node name="WinCondition" parent="." instance=ExtResource( 5 )]
-position = Vector2( 136, 88 )
-nextLevel = "Level4"
-
-[node name="Olauer" parent="." instance=ExtResource( 4 )]
-position = Vector2( 56, 152 )
-
-[node name="OrbManager" type="Node2D" parent="."]
-script = ExtResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 72, 120 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
+3/name = "Line-And-Shape-16x16-Expanded-Gothic.png 3"
+3/texture = ExtResource( 3 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 256, 256 )
+3/tile_mode = 2
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 16, 16 )
+3/autotile/spacing = 0
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 19 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "Line-And-Shape-16x16-Expanded-Gothic.png 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 256, 256, 192 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 16, 16 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Line-And-Shape-16x16-Expanded-Gothic.png 5"
+5/texture = ExtResource( 3 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 448, 256, 224 )
+5/tile_mode = 2
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 16, 16 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "Line-And-Shape-16x16-Expanded-Gothic.png 6"
+6/texture = ExtResource( 3 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 672, 256, 160 )
+6/tile_mode = 2
+6/autotile/icon_coordinate = Vector2( 0, 0 )
+6/autotile/tile_size = Vector2( 16, 16 )
+6/autotile/spacing = 0
+6/autotile/occluder_map = [  ]
+6/autotile/navpoly_map = [  ]
+6/autotile/priority_map = [  ]
+6/autotile/z_index_map = [  ]
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0

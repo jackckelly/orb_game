@@ -1,16 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Bouncer.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Platform.gd" type="Script" id=2]
-[ext_resource path="res://Enjl-Dark Halls Tileset/orb.jpg" type="Texture" id=3]
+[ext_resource path="res://shoot.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.2659
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 7.15236, 6.80743 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=6]
 radius = 8.0
 
 [node name="Orb" type="Node2D"]
@@ -21,8 +37,10 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncer"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Bouncer"]
-texture = ExtResource( 3 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bouncer"]
+frames = SubResource( 4 )
+frame = 1
+playing = true
 
 [node name="Platform" type="KinematicBody2D" parent="."]
 collision_layer = 2
@@ -30,7 +48,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Effector" type="KinematicBody2D" parent="."]
 collision_layer = 16
@@ -38,7 +56,7 @@ collision_mask = 16
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Effector"]
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 10.0

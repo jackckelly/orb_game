@@ -12,7 +12,6 @@ config_version=4
 
 config/name="making_magic"
 run/main_scene="res://levels/Level1.tscn"
-config/icon="res://icon.png"
 
 [input]
 

@@ -4,6 +4,7 @@ var on = false
 
 var off_map = null
 var on_map  = null
+onready var _animated_sprite = $AnimatedSprite
 
 func _ready():
 	off_map = self.find_node("OffMap")
@@ -12,8 +13,12 @@ func _ready():
 
 func on_body_entered(body):
 	on = !on
-	self.find_node("OffSprite").visible = !on
-	self.find_node("OnSprite").visible  =  on
+	
+	if on:
+		_animated_sprite.animation = "on"
+	else:
+		_animated_sprite.animation = "off"
+		
 
 	off_map.visible    = !on
 	on_map.visible     =  on

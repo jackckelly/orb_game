@@ -11,6 +11,9 @@ func _ready():
 	connect("body_entered", self, "on_body_entered")
 
 func on_body_entered(body):
+	var node = get_parent().get_node("Olauer/VisibilityNotifier2D")
+	get_parent().get_node('Olauer').remove_child(node)
+
 	get_tree().change_scene("res://levels/" + nextLevel + ".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

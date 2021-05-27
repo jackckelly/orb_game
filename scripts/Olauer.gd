@@ -12,6 +12,7 @@ var gravity = 0
 var initial_jump_y_speed = 0
 var terminal_velocity = 0
 
+var shoot_check_distance = 8
 # variables for the shooting mechanic
 var can_shoot = true
 var is_right = true
@@ -141,14 +142,19 @@ func shoot():
 	# use global coordinates, not local to node
 	var target = self.transform.origin
 	if is_right:
-		target += Vector2(24, 0)
+		target += Vector2(shoot_check_distance, 0)
 	else:
-		target -= Vector2(24, 0)
+		target -= Vector2(shoot_check_distance, 0)
+	var targets = [target, target + Vector2(0, -7), target + Vector2(0, 7)]
+	var occupied = false
+	for t in targets:
+		var bitmask = 0b00000000000010000001
+		var result = space_state.intersect_ray(self.transform.origin, t, [self], bitmask)
+		if result:
+			occupied = true
+			break
 	
-	var bitmask = 0b00000000000000000001
-	var result = space_state.intersect_ray(self.transform.origin, target, [self], bitmask)
-	
-	if not result:
+	if not occupied:
 		can_shoot = false
 		get_node("CooldownTimer").start()
 		
@@ -164,7 +170,7 @@ func shoot():
 		else:
 			bouncer.velocity.x = -1
 			orb.transform.origin.x -= 16
-		get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
+		get_tree().get_root().get_node("Level").get_node("OrbManager").add_child(orb)
 
 func restart():
 	get_tree().change_scene(get_tree().current_scene.filename)

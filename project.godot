@@ -11,7 +11,11 @@ config_version=4
 [application]
 
 config/name="making_magic"
-run/main_scene="res://levels/level400.tscn"
+run/main_scene="res://levels/s_drift.tscn"
+
+[autoload]
+
+BackgroundMusic="*res://BackgroundMusic.tscn"
 
 [input]
 

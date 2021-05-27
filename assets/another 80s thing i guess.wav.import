@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/another 80s thing i guess.wav-be6494385fde1a57ed4357c9e79ee1f2.sample"
+
+[deps]
+
+source_file="res://assets/another 80s thing i guess.wav"
+dest_files=[ "res://.import/another 80s thing i guess.wav-be6494385fde1a57ed4357c9e79ee1f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

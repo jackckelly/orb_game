@@ -6,34 +6,44 @@ var accel_elapsed = 0
 export var accel_total_duration = 0.3
 
 var collision_angle = deg2rad(90)
-
+var frames_since_collision = 0
+var last_collided = -1
 func _ready():
 	pass
 	#print("Shooting projectile")
 
 func _physics_process(delta):
 	# set velocity
+	frames_since_collision += 1
 	accel_elapsed += delta
 	var speed = lerp (16 * 12, 16 * 4, clamp(accel_elapsed / accel_total_duration, 0, 1))
 	velocity = velocity.normalized() * speed
 	
 	var collide = move_and_collide(velocity * delta)
 	if collide:
-		if collide.get_collider().name == "Absorb Blocks":
+		var collider = collide.get_collider()
+		if collider.name == "Absorb Blocks":
 			#note: this should have a separate animation
 			get_parent().get_parent().remove_child(get_parent())
-		elif not collide.get_collider().name == "Olauer":
-			velocity = velocity.bounce(collide.normal)
-			
-			# convert into polar coordinates
-			var r = velocity.length()
-			var theta = velocity.angle()
+		elif not collider.name == "Olauer":
+			var new_collided = collider.get_instance_id()
+			if new_collided != last_collided or frames_since_collision > 1:
+				
+				last_collided = new_collided
+				frames_since_collision = 0
+				
+				velocity = velocity.bounce(collide.normal)
 
-			# round the angle to the nearest multiple of 90 or 45
-			var rounded_theta = round (theta / collision_angle) * collision_angle
+				# convert into polar coordinates
+				var r = velocity.length()
+				var theta = velocity.angle()
 
-			# convert back to regular coordinates
-			velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
+				# round the angle to the nearest multiple of 90 or 45
+				var rounded_theta = round (theta / collision_angle) * collision_angle
+
+				# convert back to regular coordinates
+				velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
+					
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())

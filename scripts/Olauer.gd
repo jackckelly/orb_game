@@ -164,7 +164,7 @@ func shoot():
 		else:
 			bouncer.velocity.x = -1
 			orb.transform.origin.x -= 16
-		get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
+		get_tree().get_root().get_node("Level").get_node("OrbManager").add_child(orb)
 
 func restart():
 	get_tree().change_scene(get_tree().current_scene.filename)

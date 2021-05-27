@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://prefabs/Switch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/OrbManager.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/Olauer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/WinCondition.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D"]
+
+[node name="Switch" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 152.465 )
+
+[node name="Bouncing Blocks" parent="Switch/OffMap" index="0"]
+tile_data = PoolIntArray( -524291, 0, 65536, -524290, 0, 65537, -524289, 0, 65537, -589824, 0, 65537, -589823, 0, 65538, -458755, 0, 196608, -458754, 0, 262145, -458753, 0, 131073, -524288, 0, 131073, -524287, 0, 327680, -524286, 0, 65538, -393218, 0, 196608, -393217, 0, 196609, -458752, 0, 196609, -458751, 0, 196609, -458750, 0, 196610 )
+
+[node name="Passing Blocks" parent="Switch/OffMap" index="1"]
+tile_data = PoolIntArray( -327682, 2, 65536, -327681, 2, 65537, -393216, 2, 65537, -393215, 2, 65537, -393214, 2, 65538, -262146, 2, 131072, -262145, 2, 131073, -327680, 2, 131073, -327679, 2, 131073, -327678, 2, 131074, -196610, 2, 131072, -196609, 2, 131073, -262144, 2, 131073, -262143, 2, 131073, -262142, 2, 131074, -131074, 2, 131072, -131073, 2, 131073, -196608, 2, 131073, -196607, 2, 131073, -196606, 2, 131074, -65538, 2, 131072, -65537, 2, 262144, -131072, 2, 196609, -131071, 2, 262145, -131070, 2, 131074, -2, 2, 196608, -1, 2, 196610, -65535, 2, 196608, -65534, 2, 196610 )
+
+[node name="Map" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Bouncing Blocks" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 655357, 0, 65539, 720893, 0, 327682, 720894, 0, 1, 720895, 0, 1, 655360, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 2 )
+
+[node name="Passing Blocks" type="TileMap" parent="Map"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 2
+collision_mask = 2
+format = 1
+
+[node name="Absorb Blocks" type="TileMap" parent="Map"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+
+[node name="Spikes" type="TileMap" parent="Map"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 32
+format = 1
+tile_data = PoolIntArray( 458756, 2, 524293, 524292, 2, 524293, 589828, 2, 524293 )
+
+[node name="WinCondition" parent="." instance=ExtResource( 5 )]
+position = Vector2( 152, 152 )
+z_as_relative = false
+nextLevel = "LevelA1"
+
+[node name="Olauer" parent="." instance=ExtResource( 4 )]
+position = Vector2( -24, 152 )
+
+[node name="OrbManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 72, 120 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[editable path="Switch"]

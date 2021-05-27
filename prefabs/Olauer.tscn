@@ -123,6 +123,7 @@ wait_time = 0.2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "idle"
+frame = 4
 playing = true
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

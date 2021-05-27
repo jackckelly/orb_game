@@ -25,7 +25,15 @@ func _physics_process(delta):
 		if collider.name == "Absorb Blocks":
 			#note: this should have a separate animation
 			get_parent().get_parent().remove_child(get_parent())
-		elif not collider.name == "Olauer":
+		#elif not collider.name == "Olauer":
+		else:
+			if collider.name == "Olauer":
+				var target = self.transform.origin + collide.normal.normalized() * 32
+				var bitmask = 0b00000000000000000011
+				var space_state = get_world_2d().direct_space_state
+				var result = space_state.intersect_ray(self.transform.origin, target, [self], bitmask)
+				if not result:
+					return
 			var new_collided = collider.get_instance_id()
 			if new_collided != last_collided or frames_since_collision > 1:
 				

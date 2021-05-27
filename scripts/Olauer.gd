@@ -19,6 +19,7 @@ var is_right = true
 # player's current velocity
 var velocity = Vector2()
 
+var should_snap = true
 # animation
 onready var _animated_sprite = $AnimatedSprite
 
@@ -46,6 +47,8 @@ func _ready():
 	
 	# start the animation
 	_animated_sprite.play()
+	
+
 
 func get_input(delta):
 	if Input.is_action_just_pressed("ui_restart"):
@@ -76,9 +79,11 @@ func get_input(delta):
 	if is_on_floor() and Input.is_action_just_pressed("ui_select"):
 		velocity.y += initial_jump_y_speed
 		set_animation("jump_up")
+		should_snap = false
 	
 	if Input.is_action_just_released("ui_select") and velocity.y < 0:
 		velocity.y = 0
+		should_snap = true
 	
 	if Input.is_action_just_pressed("ui_action") and can_shoot:
 		shoot()
@@ -94,7 +99,10 @@ func _physics_process(delta):
 	var old_velocity = velocity;
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)
-	velocity = move_and_slide(velocity, Vector2(0, -1), true)
+	var snap = Vector2(0, 8)
+	if not should_snap:
+		snap = Vector2.ZERO
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -1), true)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "KillZone":
@@ -102,8 +110,12 @@ func _physics_process(delta):
 		if collision.collider.name == "Spikes":
 			restart()
 	
-	if velocity.y > 0:
+	if velocity.y > 0 and not is_on_floor():
 		set_animation("jump_down")
+	
+	# possibly redundant
+	if velocity.y > 0 or is_on_floor():
+		should_snap = true
 		
 	if _ray_north.is_colliding() and _ray_south.is_colliding():
 		var collider_north = _ray_north.get_collider()

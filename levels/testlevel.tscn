@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/OrbManager.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/Olauer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/WinCondition.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Bouncing Blocks" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 655357, 4, 0, 917501, 4, 65536, 917503, 4, 65537 )
+
+[node name="Passing Blocks" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 2
+collision_mask = 2
+format = 1
+tile_data = PoolIntArray( 720893, 2, 0, 720894, 2, 1, 720895, 2, 1, 655360, 2, 1, 655361, 2, 2 )
+
+[node name="Absorb Blocks" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+
+[node name="Spikes" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 32
+format = 1
+
+[node name="KillZone" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 32
+format = 1
+tile_data = PoolIntArray( 393210, 2, 9, 393211, 2, 9, 393212, 2, 9, 393213, 2, 9, 393214, 2, 9, 393215, 2, 9, 327680, 2, 9, 327681, 2, 9, 327682, 2, 9, 327683, 2, 9, 327684, 2, 9, 327685, 2, 9, 327686, 2, 9, 327687, 2, 9, 327688, 2, 9, 327689, 2, 9, 327690, 2, 9, 327691, 2, 9, 327692, 2, 9, 327693, 2, 9, 327694, 2, 9, 327695, 2, 9, 458746, 2, 9, 393231, 2, 9, 524282, 2, 9, 458767, 2, 9, 589818, 2, 9, 524303, 2, 9, 655354, 2, 9, 589839, 2, 9, 720890, 2, 9, 655375, 2, 9, 786426, 2, 9, 720911, 2, 9, 851962, 2, 9, 786447, 2, 9, 917498, 2, 9, 851983, 2, 9, 983034, 2, 9, 917519, 2, 9, 1048570, 2, 9, 983055, 2, 9, 1114106, 2, 9, 1114107, 2, 9, 1114108, 2, 9, 1114109, 2, 9, 1114110, 2, 9, 1114111, 2, 9, 1048576, 2, 9, 1048577, 2, 9, 1048578, 2, 9, 1048579, 2, 9, 1048580, 2, 9, 1048581, 2, 9, 1048582, 2, 9, 1048583, 2, 9, 1048584, 2, 9, 1048585, 2, 9, 1048586, 2, 9, 1048587, 2, 9, 1048588, 2, 9, 1048589, 2, 9, 1048590, 2, 9, 1048591, 2, 9, 1179642, 2, 9, 1179643, 2, 9, 1179644, 2, 9, 1179645, 2, 9, 1179646, 2, 9, 1179647, 2, 9, 1114112, 2, 9, 1114113, 2, 9, 1114114, 2, 9, 1114115, 2, 9, 1114116, 2, 9, 1114117, 2, 9, 1114118, 2, 9, 1114119, 2, 9, 1114120, 2, 9, 1114121, 2, 9, 1114122, 2, 9, 1114123, 2, 9, 1114124, 2, 9, 1114125, 2, 9, 1114126, 2, 9, 1114127, 2, 9 )
+
+[node name="WinCondition" parent="." instance=ExtResource( 5 )]
+position = Vector2( 152, 152 )
+nextLevel = "LevelP1"
+
+[node name="Olauer" parent="." instance=ExtResource( 4 )]
+position = Vector2( -8, 152 )
+
+[node name="OrbManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 72, 120 )
+current = true
+zoom = Vector2( 0.5, 0.5 )

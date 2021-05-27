@@ -118,7 +118,7 @@ __meta__ = {
 }
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )

@@ -99,23 +99,37 @@ func _physics_process(delta):
 		set_animation("jump_down")
 
 func shoot():
-	can_shoot = false
-	get_node("CooldownTimer").start()
-	
-	_animated_sprite.play("shoot")
-	
-	var projectile = load("res://prefabs/Orb.tscn")
-	var orb = projectile.instance()
-	orb.transform.origin = self.transform.origin
 
-	var bouncer = orb.get_child(0)
+	_animated_sprite.play("shoot")
+	var space_state = get_world_2d().direct_space_state
+	
+	# use global coordinates, not local to node
+	var target = self.transform.origin
 	if is_right:
-		bouncer.velocity.x = 1
-		orb.transform.origin.x += 16
+		target += Vector2(24, 0)
 	else:
-		bouncer.velocity.x = -1
-		orb.transform.origin.x -= 16
-	get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
+		target -= Vector2(24, 0)
+	
+	var bitmask = 0b00000000000000000001
+	var result = space_state.intersect_ray(self.transform.origin, target, [self], bitmask)
+	
+	if not result:
+		can_shoot = false
+		get_node("CooldownTimer").start()
+		
+		var projectile = load("res://prefabs/Orb.tscn")
+	
+		var orb = projectile.instance()
+		orb.transform.origin = self.transform.origin
+
+		var bouncer = orb.get_child(0)
+		if is_right:
+			bouncer.velocity.x = 1
+			orb.transform.origin.x += 16
+		else:
+			bouncer.velocity.x = -1
+			orb.transform.origin.x -= 16
+		get_tree().get_root().get_child(0).get_node("OrbManager").add_child(orb)
 
 func restart():
 	get_tree().change_scene(get_tree().current_scene.filename)

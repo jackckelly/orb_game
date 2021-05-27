@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="making_magic"
-run/main_scene="res://levels/testlevel.tscn"
+run/main_scene="res://levels/Level6.tscn"
 
 [input]
 

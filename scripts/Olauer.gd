@@ -22,6 +22,12 @@ var velocity = Vector2()
 # animation
 onready var _animated_sprite = $AnimatedSprite
 
+# anti-squish rays
+onready var _ray_north = $RayNorth
+onready var _ray_south = $RaySouth
+onready var _ray_east  = $RayEast
+onready var _ray_west  = $RayWest
+
 func _ready():
 	# we calculate the acceleration due to gravity
 	# as a function of the max jump height and
@@ -85,6 +91,7 @@ func _physics_process(delta):
 	# (now, just a function of the jump velocity)
 	velocity.y = clamp(velocity.y, -terminal_velocity, terminal_velocity)
 
+	var old_velocity = velocity;
 	# we change this depending on the platform we're on
 	# var ground_normal = Vector2(0, -1)
 	velocity = move_and_slide(velocity, Vector2(0, -1), true)
@@ -97,6 +104,22 @@ func _physics_process(delta):
 	
 	if velocity.y > 0:
 		set_animation("jump_down")
+		
+	if _ray_north.is_colliding() and _ray_south.is_colliding():
+		var collider_north = _ray_north.get_collider()
+		var collider_south = _ray_south.get_collider()
+		if collider_north.name == "Bouncer":
+			collider_north.bounce_and_snap(-1 * _ray_north.get_collision_normal())
+		if collider_south.name == "Bouncer":
+			collider_south.bounce_and_snap(-1 * _ray_south.get_collision_normal())
+			
+	if _ray_east.is_colliding() and _ray_west.is_colliding():
+		var collider_east = _ray_east.get_collider()
+		var collider_west = _ray_west.get_collider()
+		if collider_east.name == "Bouncer":
+			collider_east.bounce_and_snap(-1 * _ray_east.get_collision_normal())
+		if collider_west.name == "Bouncer":
+			collider_west.bounce_and_snap(-1 * _ray_west.get_collision_normal())	
 
 func shoot():
 

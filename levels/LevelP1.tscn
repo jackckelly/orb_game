@@ -16,7 +16,7 @@ cell_quadrant_size = 4
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 655358, 0, 65539, 720894, 0, 327682, 720895, 0, 1, 655360, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 2 )
+tile_data = PoolIntArray( 655358, 0, 65539, 589829, 0, 65539, 720894, 0, 327682, 720895, 0, 1, 655360, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 0, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 2 )
 
 [node name="Passing Blocks" type="TileMap" parent="Map"]
 tile_set = ExtResource( 4 )
@@ -54,7 +54,7 @@ position = Vector2( 152, 152 )
 nextLevel = "LevelA1"
 
 [node name="Olauer" parent="." instance=ExtResource( 2 )]
-position = Vector2( -8, 152 )
+position = Vector2( 32, 152 )
 
 [node name="OrbManager" type="Node2D" parent="."]
 script = ExtResource( 1 )

@@ -8,91 +8,86 @@ extents = Vector2( 3.93213, 7.95296 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 16 )
+region = Rect2( 0, 64, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 64, 16 )
+region = Rect2( 128, 64, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 64, 16 )
+region = Rect2( 0, 80, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 16, 64, 16 )
+region = Rect2( 64, 80, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 16, 64, 16 )
+region = Rect2( 64, 48, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 64, 64, 16 )
+region = Rect2( 128, 48, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 64, 64, 16 )
+region = Rect2( 0, 48, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 80, 64, 16 )
+region = Rect2( 128, 16, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 80, 64, 16 )
+region = Rect2( 0, 32, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 48, 64, 16 )
+region = Rect2( 64, 32, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 48, 64, 16 )
+region = Rect2( 128, 32, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 48, 64, 16 )
+region = Rect2( 0, 0, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 16, 64, 16 )
+region = Rect2( 64, 0, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 32, 64, 16 )
+region = Rect2( 128, 0, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 32, 64, 16 )
+region = Rect2( 0, 16, 64, 16 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 32, 64, 16 )
+region = Rect2( 64, 16, 64, 16 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "shoot",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "jump_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ) ],
+"frames": [ SubResource( 8 ) ],
 "loop": true,
 "name": "jump_up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
@@ -100,6 +95,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "idle",
 "speed": 5.0
 } ]
 
@@ -111,11 +111,28 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="RayNorth" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -8 )
+collision_mask = 3
+
+[node name="RaySouth" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 3
+
+[node name="RayEast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 4, 0 )
+collision_mask = 3
+
+[node name="RayWest" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -4, 0 )
+collision_mask = 3
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -123,7 +140,10 @@ wait_time = 0.2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "idle"
+frame = 1
 playing = true
+
+[node name="Rays" type="Node2D" parent="."]
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

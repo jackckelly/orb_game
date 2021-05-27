@@ -25,25 +25,28 @@ func _physics_process(delta):
 		if collider.name == "Absorb Blocks":
 			#note: this should have a separate animation
 			get_parent().get_parent().remove_child(get_parent())
-		elif not collider.name == "Olauer":
+		#elif not collider.name == "Olauer":
+		else:
 			var new_collided = collider.get_instance_id()
 			if new_collided != last_collided or frames_since_collision > 1:
 				
 				last_collided = new_collided
 				frames_since_collision = 0
 				
-				velocity = velocity.bounce(collide.normal)
+				bounce_and_snap(collide.normal)
 
-				# convert into polar coordinates
-				var r = velocity.length()
-				var theta = velocity.angle()
+func bounce_and_snap(normal):
+	velocity = velocity.bounce(normal)
 
-				# round the angle to the nearest multiple of 90 or 45
-				var rounded_theta = round (theta / collision_angle) * collision_angle
+	# convert into polar coordinates
+	var r = velocity.length()
+	var theta = velocity.angle()
 
-				# convert back to regular coordinates
-				velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
-					
+	# round the angle to the nearest multiple of 90 or 45
+	var rounded_theta = round (theta / collision_angle) * collision_angle
+
+	# convert back to regular coordinates
+	velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
 
 func _on_KillTimer_timeout():
 	get_parent().get_parent().remove_child(get_parent())

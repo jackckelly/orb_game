@@ -73,14 +73,6 @@ collision_layer = 4
 collision_mask = 32
 format = 1
 
-[node name="KillZone" type="TileMap" parent="OffMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-
 [node name="OnMap" type="Node2D" parent="."]
 visible = false
 
@@ -112,14 +104,6 @@ collision_mask = 3
 format = 1
 
 [node name="Spikes" type="TileMap" parent="OnMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-
-[node name="KillZone" type="TileMap" parent="OnMap"]
 position = Vector2( -8, 8 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )

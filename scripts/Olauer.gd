@@ -180,3 +180,7 @@ func set_animation(name):
 func _on_AnimatedSprite_animation_finished():
 	if _animated_sprite.animation == 'shoot':
 		_animated_sprite.play('idle')
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	restart()

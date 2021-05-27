@@ -42,13 +42,6 @@ collision_layer = 4
 collision_mask = 32
 format = 1
 
-[node name="KillZone" type="TileMap" parent="Map"]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-
 [node name="WinCondition" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 152 )
 nextLevel = "LevelA1"

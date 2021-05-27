@@ -24,8 +24,8 @@ func on_body_entered(body):
 	on_map.visible     =  on
 	
 	if on:
-		get_tree().get_root().remove_child(off_map)
+		self.remove_child(off_map)
 		self.add_child(on_map)
 	else:
-		get_tree().get_root().remove_child(on_map)
+		self.remove_child(on_map)
 		self.add_child(off_map)

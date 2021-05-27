@@ -30,6 +30,8 @@ extents = Vector2( 8, 8 )
 radius = 8.0
 
 [node name="Orb" type="Node2D"]
+z_index = -1
+z_as_relative = false
 
 [node name="Bouncer" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
@@ -39,7 +41,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bouncer"]
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [node name="Platform" type="KinematicBody2D" parent="."]

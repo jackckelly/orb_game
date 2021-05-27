@@ -16,7 +16,18 @@ cell_quadrant_size = 4
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 131064, 4, 0, 65537, 4, 1, 393208, 4, 65536, 393212, 4, 1, 393213, 4, 0, 327681, 4, 65537, 720888, 4, 0, 720892, 4, 65537, 917492, 0, 65539, 983028, 0, 131075, 1048564, 0, 131075, 1048568, 4, 65537, 1114100, 0, 327682, 1114101, 0, 1, 1114102, 0, 1, 1114103, 0, 2 )
+tile_data = PoolIntArray( 1048564, 0, 65539, 1114100, 0, 327682, 1114101, 0, 1, 1114102, 0, 1, 1114103, 0, 2 )
+
+[node name="Corners" type="TileMap" parent="Map"]
+z_index = -3
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 130
+collision_mask = 130
+format = 1
+tile_data = PoolIntArray( 131064, 4, 0, 65537, 4, 1, 393208, 4, 65536, 393212, 4, 1, 393213, 4, 0, 327681, 4, 65537, 720888, 4, 0, 720892, 4, 65537, 1048568, 4, 65537 )
 
 [node name="Passing Blocks" type="TileMap" parent="Map"]
 tile_set = ExtResource( 1 )

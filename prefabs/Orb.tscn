@@ -32,7 +32,6 @@ radius = 8.0
 [node name="Orb" type="Node2D"]
 
 [node name="Bouncer" type="KinematicBody2D" parent="."]
-collision_mask = 33
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncer"]

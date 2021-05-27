@@ -19,7 +19,6 @@ animations = [ {
 } ]
 
 [node name="WinCondition" type="Area2D"]
-position = Vector2( 801.126, 409.848 )
 z_index = -2
 z_as_relative = false
 collision_layer = 4

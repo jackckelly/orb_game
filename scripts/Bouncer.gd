@@ -16,7 +16,7 @@ func _physics_process(delta):
 	# set velocity
 	frames_since_collision += 1
 	accel_elapsed += delta
-	var speed = lerp (16 * 12, 16 * 4, clamp(accel_elapsed / accel_total_duration, 0, 1))
+	var speed = lerp (16 * 12, 16 * 5, clamp(accel_elapsed / accel_total_duration, 0, 1))
 	velocity = velocity.normalized() * speed
 	
 	var collide = move_and_collide(velocity * delta)

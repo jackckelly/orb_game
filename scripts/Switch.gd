@@ -9,6 +9,7 @@ onready var _animated_sprite = $AnimatedSprite
 func _ready():
 	off_map = self.find_node("OffMap")
 	on_map  = self.find_node("OnMap")
+	self.remove_child(on_map)
 	connect("body_entered", self, "on_body_entered")
 
 func on_body_entered(body):

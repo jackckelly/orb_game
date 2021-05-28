@@ -9,8 +9,8 @@ var collision_angle = deg2rad(90)
 var frames_since_collision = 0
 var last_collided = -1
 
-var start_speed = 16 * 2
-var end_speed = 16 * 7
+var start_speed = 16 * 5
+var end_speed = 16 * 5
 
 func _ready():
 	pass

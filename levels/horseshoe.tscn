@@ -14,4 +14,7 @@ tile_data = PoolIntArray( 262140, 4, 0, 196611, 4, 1, 327676, 7, 0, 327677, 7, 3
 position = Vector2( 168, 152 )
 nextLevel = "leap_of_faith"
 
+[node name="Camera2D" parent="." index="4"]
+zoom = Vector2( 1, 1 )
+
 [editable path="Map"]

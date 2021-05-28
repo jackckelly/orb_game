@@ -29,6 +29,9 @@ tile_data = PoolIntArray( -393219, 0, 65539, -327683, 0, 131075, -262147, 0, 131
 [node name="Switch2" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 8, 152 )
 
+[node name="Bouncing Blocks" parent="Switch2/OffMap" index="0"]
+tile_data = PoolIntArray( -458747, 0, 65539, -393211, 0, 131075, -327675, 0, 131075, -262139, 0, 131075, -196603, 0, 131075, -131067, 0, 131075, -65531, 0, 131075, 5, 0, 131075, 65541, 0, 196611 )
+
 [node name="OnMap" parent="Switch2" index="1"]
 visible = true
 

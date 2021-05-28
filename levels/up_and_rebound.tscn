@@ -14,7 +14,7 @@ tile_data = PoolIntArray( 327676, 7, 393222, 327677, 7, 393223, 327678, 7, 39322
 tile_data = PoolIntArray( 262156, 1, 0, 262157, 1, 1, 262158, 1, 2 )
 
 [node name="WinCondition" parent="." index="1"]
-position = Vector2( 216, 56 )
+position = Vector2( 216, 40 )
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 72, 168 )

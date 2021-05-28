@@ -12,7 +12,7 @@ var gravity = 0
 var initial_jump_y_speed = 0
 var terminal_velocity = 0
 
-var shoot_check_distance = 8
+var shoot_check_distance = 24
 # variables for the shooting mechanic
 var can_shoot = true
 var is_right = true
@@ -164,6 +164,7 @@ func shoot():
 		orb.transform.origin = self.transform.origin
 
 		var bouncer = orb.get_child(0)
+
 		if is_right:
 			bouncer.velocity.x = 1
 			orb.transform.origin.x += 16

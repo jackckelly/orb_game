@@ -8,6 +8,10 @@ export var accel_total_duration = 0.3
 var collision_angle = deg2rad(90)
 var frames_since_collision = 0
 var last_collided = -1
+
+var start_speed = 16 * 2
+var end_speed = 16 * 7
+
 func _ready():
 	pass
 	#print("Shooting projectile")
@@ -16,7 +20,7 @@ func _physics_process(delta):
 	# set velocity
 	frames_since_collision += 1
 	accel_elapsed += delta
-	var speed = lerp (16 * 12, 16 * 5, clamp(accel_elapsed / accel_total_duration, 0, 1))
+	var speed = lerp (start_speed, end_speed, clamp(accel_elapsed / accel_total_duration, 0, 1))
 	velocity = velocity.normalized() * speed
 	
 	var collide = move_and_collide(velocity * delta)

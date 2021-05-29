@@ -22,6 +22,7 @@ func _process(delta):
 		
 		if option == "Play":
 			get_tree().change_scene("res://levels/first_steps.tscn")
+			get_tree().get_root().get_node("PauseScreen").enabled = true
 			return
 		
 		if option == "Level Select":

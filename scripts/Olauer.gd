@@ -48,8 +48,6 @@ func _ready():
 	
 	# start the animation
 	_animated_sprite.play()
-	
-
 
 func get_input(delta):
 	if Input.is_action_just_pressed("ui_restart"):

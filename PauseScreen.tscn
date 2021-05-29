@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/PauseScreen.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="PauseScreen" type="PopupPanel"]
+pause_mode = 2
+margin_left = -72.0
+margin_top = -120.0
+margin_right = 440.0
+margin_bottom = 180.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+custom_fonts/font = ExtResource( 1 )
+text = "PAUSED
+
+PRESS [RETURN] TO CONTINUE"
+align = 1
+valign = 1

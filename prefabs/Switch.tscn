@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://prefabs/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Switch.gd" type="Script" id=2]
 [ext_resource path="res://assets/switch.png" type="Texture" id=4]
 
@@ -36,80 +36,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="OffMap" type="Node2D" parent="."]
+[node name="OffMap" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 8 )
 
-[node name="Bouncing Blocks" type="TileMap" parent="OffMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-
-[node name="Passing Blocks" type="TileMap" parent="OffMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 2
-collision_mask = 2
-format = 1
-
-[node name="Absorb Blocks" type="TileMap" parent="OffMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-
-[node name="Spikes" type="TileMap" parent="OffMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
-
-[node name="OnMap" type="Node2D" parent="."]
+[node name="OnMap" parent="." instance=ExtResource( 1 )]
 visible = false
-
-[node name="Bouncing Blocks" type="TileMap" parent="OnMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-
-[node name="Passing Blocks" type="TileMap" parent="OnMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 2
-collision_mask = 2
-format = 1
-
-[node name="Absorb Blocks" type="TileMap" parent="OnMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 3
-format = 1
-
-[node name="Spikes" type="TileMap" parent="OnMap"]
-position = Vector2( -8, 8 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_layer = 4
-collision_mask = 32
-format = 1
+position = Vector2( 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

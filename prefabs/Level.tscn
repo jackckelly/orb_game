@@ -18,7 +18,6 @@ nextLevel = "default"
 position = Vector2( 168, 152 )
 
 [node name="OrbManager" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -26,7 +25,7 @@ position = Vector2( 256, 150 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = -8
 follow_viewport_enable = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]

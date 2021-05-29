@@ -1,0 +1,163 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/spike.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = -20.0
+margin_right = 256.0
+margin_bottom = 113.0
+rect_scale = Vector2( 2, 2 )
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Orb Game" type="Label" parent="CenterContainer"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 155.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 2 )
+text = "Orb Game"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 196.0
+margin_top = 145.0
+margin_right = 313.0
+margin_bottom = 211.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selections" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 76.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Play" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Level Select" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer2"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_top = 37.0
+margin_right = 16.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Options" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer3"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_top = 54.0
+margin_right = 16.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Quit" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer4"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 20.0
+margin_right = 95.0
+margin_bottom = 76.0
+
+[node name="Play" type="Label" parent="HBoxContainer/Labels"]
+margin_right = 75.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level Select" type="Label" parent="HBoxContainer/Labels"]
+margin_top = 17.0
+margin_right = 75.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "Level Select"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Label" parent="HBoxContainer/Labels"]
+margin_top = 34.0
+margin_right = 75.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Label" parent="HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 75.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

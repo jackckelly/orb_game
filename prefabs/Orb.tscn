@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Bouncer.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Platform.gd" type="Script" id=2]
 [ext_resource path="res://assets/shoot.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Corner.gd" type="Script" id=4]
+[ext_resource path="res://assets/shoot2.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.2659
@@ -16,18 +17,39 @@ region = Rect2( 0, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "new",
+"speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=10]
 radius = 0.5
 
 [node name="Orb" type="Node2D"]
@@ -41,7 +63,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bouncer"]
-frames = SubResource( 4 )
+frames = SubResource( 8 )
+animation = "new"
 playing = true
 
 [node name="Platform" type="KinematicBody2D" parent="."]
@@ -50,7 +73,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="Effector" type="KinematicBody2D" parent="."]
 collision_layer = 16
@@ -58,7 +81,7 @@ collision_mask = 16
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Effector"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Corner" type="KinematicBody2D" parent="."]
 collision_layer = 128
@@ -66,7 +89,7 @@ collision_mask = 128
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corner"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 10.0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/spike.png" type="Texture" id=3]
+[ext_resource path="res://assets/select.png" type="Texture" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

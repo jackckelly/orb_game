@@ -12,6 +12,8 @@ var last_collided = -1
 var start_speed = 16 * 5
 var end_speed = 16 * 5
 
+onready var _animated_sprite = $AnimatedSprite
+
 func _ready():
 	pass
 	#print("Shooting projectile")
@@ -38,6 +40,10 @@ func _physics_process(delta):
 				frames_since_collision = 0
 				
 				bounce_and_snap(collide.normal)
+	if velocity.x >= 0:
+		_animated_sprite.flip_h = true
+	else:
+		_animated_sprite.flip_h = false
 
 func bounce_and_snap(normal):
 	velocity = velocity.bounce(normal)

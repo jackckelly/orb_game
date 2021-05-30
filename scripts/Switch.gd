@@ -16,8 +16,10 @@ func on_body_entered(body):
 	on = !on
 	
 	if on:
+		get_tree().get_root().get_node("Sound").get_node("Switch On").play()
 		_animated_sprite.animation = "on"
 	else:
+		get_tree().get_root().get_node("Sound").get_node("Switch Off").play()
 		_animated_sprite.animation = "off"
 		
 

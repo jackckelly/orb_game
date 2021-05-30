@@ -1,20 +1,69 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/another 80s thing i guess.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/orb_bounce.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/cast_orb.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/orb_decay.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/orb_wiff.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/switch_off.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/switch_on.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/menu_move.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/menu_select.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/jump.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/win.wav" type="AudioStream" id=11]
 
 [node name="Sound" type="Node2D"]
+position = Vector2( 256, 152 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 volume_db = -18.0
 autoplay = true
+attenuation = 0.0192366
 
-[node name="Orb Bounce" type="AudioStreamPlayer" parent="."]
+[node name="Orb Bounce" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
-volume_db = -12.0
+volume_db = -14.0
+attenuation = 0.170755
 
-[node name="Cast Orb" type="AudioStreamPlayer" parent="."]
+[node name="Cast Orb" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -4.0
+volume_db = -2.0
+
+[node name="Orb Wiff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 12.0
+
+[node name="Orb Decay" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -8.0
+
+[node name="Switch On" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = 4.0
+
+[node name="Switch Off" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 4.0
+
+[node name="Menu Move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -16.0
+
+[node name="Menu Select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -8.0
+attenuation = 0.307786
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = -18.0
+pitch_scale = 1.28
+attenuation = 0.0947323
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+attenuation = 0.0253829

@@ -7,17 +7,20 @@ onready var selections = $HBoxContainer/Selections
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up") and index > 0:
+		get_tree().get_root().get_node("Sound").get_node("Menu Move").play()
 		selections.get_child(index).get_child(0).visible = false
 		index -= 1
 		selections.get_child(index).get_child(0).visible = true
 
 	if Input.is_action_just_pressed("ui_down") and index < options.size() - 1:
+		get_tree().get_root().get_node("Sound").get_node("Menu Move").play()
 		selections.get_child(index).get_child(0).visible = false
 		index += 1
 		selections.get_child(index).get_child(0).visible = true
 		
 	if Input.is_action_just_pressed("ui_accept") or\
 	Input.is_action_just_pressed("ui_action"):
+		get_tree().get_root().get_node("Sound").get_node("Menu Select").play()
 		var option = options[index]
 		
 		if option == "Play":

@@ -11,6 +11,10 @@ func _ready():
 	connect("body_entered", self, "on_body_entered")
 
 func on_body_entered(body):
+	# win sound
+	# TODO: win animation
+	# get_tree().get_root().get_node("Sound").get_node("Win").play()
+	
 	var node = get_parent().get_node("Olauer/VisibilityNotifier2D")
 	get_parent().get_node('Olauer').remove_child(node)
 

@@ -76,11 +76,13 @@ func get_input(delta):
 	velocity.x += dvx
 
 	if is_on_floor() and Input.is_action_just_pressed("ui_select"):
+		get_tree().get_root().get_node("Sound").get_node("Jump").play()
 		velocity.y += initial_jump_y_speed
 		set_animation("jump_up")
 		should_snap = false
 	
 	if Input.is_action_just_released("ui_select") and velocity.y < 0:
+		get_tree().get_root().get_node("Sound").get_node("Jump").stop()
 		velocity.y = 0
 		should_snap = true
 	
@@ -149,12 +151,12 @@ func shoot():
 		var bitmask = 0b00000000000010000001
 		var result = space_state.intersect_ray(self.transform.origin, t, [self], bitmask)
 		if result:
+			get_tree().get_root().get_node("Sound").get_node("Orb Wiff").play()
 			occupied = true
 			break
 	
 	if not occupied:
 		can_shoot = false
-		
 		get_tree().get_root().get_node("Sound").get_node("Cast Orb").play()
 
 		get_node("CooldownTimer").start()

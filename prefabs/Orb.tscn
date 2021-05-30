@@ -65,6 +65,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bouncer"]
 frames = SubResource( 8 )
 animation = "new"
+frame = 1
 playing = true
 
 [node name="Platform" type="KinematicBody2D" parent="."]

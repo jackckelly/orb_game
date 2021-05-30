@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/another 80s thing i guess.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/orb_bounce.wav" type="AudioStream" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/menu_select.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/jump.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/win.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/death.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/startup.wav" type="AudioStream" id=13]
 
 [node name="Sound" type="Node2D"]
 position = Vector2( 256, 152 )
@@ -21,7 +23,6 @@ __meta__ = {
 [node name="Background Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 volume_db = -18.0
-autoplay = true
 attenuation = 0.0192366
 
 [node name="Orb Bounce" type="AudioStreamPlayer2D" parent="."]
@@ -49,6 +50,10 @@ volume_db = 4.0
 stream = ExtResource( 6 )
 volume_db = 4.0
 
+[node name="Startup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+attenuation = 0.0099575
+
 [node name="Menu Move" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 volume_db = -16.0
@@ -63,6 +68,10 @@ stream = ExtResource( 10 )
 volume_db = -18.0
 pitch_scale = 1.28
 attenuation = 0.0947323
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -2.0
 
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )

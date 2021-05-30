@@ -17,6 +17,10 @@ var shoot_check_distance = 24
 var can_shoot = true
 var is_right = true
 
+# variables for level transitions
+var is_win_locked = false
+var restart_is_death = true
+
 # player's current velocity
 var velocity = Vector2()
 
@@ -90,6 +94,9 @@ func get_input(delta):
 		shoot()
 
 func _physics_process(delta):
+	if is_win_locked:
+		return
+
 	get_input(delta)
 	velocity.y += gravity * delta
 	
@@ -106,8 +113,6 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -1), true)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name == "KillZone":
-			restart()
 		if collision.collider.name == "Spikes":
 			restart()
 	
@@ -177,6 +182,8 @@ func shoot():
 		get_tree().get_root().get_node("Level").get_node("OrbManager").add_child(orb)
 
 func restart():
+	if not is_win_locked:
+		get_tree().get_root().get_node("Sound").get_node("Death").play()
 	get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_CooldownTimer_timeout():
@@ -190,7 +197,6 @@ func set_animation(name):
 func _on_AnimatedSprite_animation_finished():
 	if _animated_sprite.animation == 'shoot':
 		_animated_sprite.play('idle')
-
 
 func _on_VisibilityNotifier2D_screen_exited():
 	restart()

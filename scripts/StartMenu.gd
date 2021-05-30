@@ -5,6 +5,9 @@ var index = 0
 
 onready var selections = $HBoxContainer/Selections
 
+func _ready():
+	get_tree().get_root().get_node("Sound").get_node("Startup").play()
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up") and index > 0:
 		get_tree().get_root().get_node("Sound").get_node("Menu Move").play()
@@ -26,6 +29,7 @@ func _process(delta):
 		if option == "Play":
 			get_tree().change_scene("res://levels/first_steps.tscn")
 			get_tree().get_root().get_node("PauseScreen").enabled = true
+			get_tree().get_root().get_node("Sound").get_node("Background Music").play()
 			return
 		
 		if option == "Level Select":

@@ -154,6 +154,9 @@ func shoot():
 	
 	if not occupied:
 		can_shoot = false
+		
+		get_tree().get_root().get_node("Sound").get_node("Cast Orb").play()
+
 		get_node("CooldownTimer").start()
 		
 		var projectile = load("res://prefabs/Orb.tscn")

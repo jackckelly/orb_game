@@ -46,7 +46,11 @@ func _physics_process(delta):
 		_animated_sprite.flip_h = false
 
 func bounce_and_snap(normal):
+	# adjust the velocity on bounce
 	velocity = velocity.bounce(normal)
+	
+	# play the bounce sound
+	get_tree().get_root().get_node("Sound").get_node("Orb Bounce").play()
 
 	# convert into polar coordinates
 	var r = velocity.length()

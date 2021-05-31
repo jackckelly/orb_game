@@ -21,7 +21,6 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
 }
-is_music_enabled = false
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
@@ -74,7 +73,7 @@ attenuation = 0.0947323
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
-volume_db = -2.0
+volume_db = -8.0
 
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )

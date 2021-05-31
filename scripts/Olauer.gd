@@ -12,7 +12,8 @@ var gravity = 0
 var initial_jump_y_speed = 0
 var terminal_velocity = 0
 
-var shoot_check_distance = 24
+var shoot_check_distance = 12
+var shoot_check_distance_orb = 24
 # variables for the shooting mechanic
 var can_shoot = true
 var is_right = true
@@ -160,6 +161,23 @@ func shoot():
 			_sound.try_play("Orb Wiff")
 			occupied = true
 			break
+	
+	if not occupied: 
+		target = self.transform.origin
+		if is_right:
+			target += Vector2(shoot_check_distance_orb, 0)
+		else:
+			target -= Vector2(shoot_check_distance_orb, 0)
+		targets = [target, target + Vector2(0, -7), target + Vector2(0, 7)]
+
+		for t in targets:
+			var bitmask = 0b00000000000010000001
+			var result = space_state.intersect_ray(self.transform.origin, t, [self], bitmask)
+
+			if result and result.collider.name == "Bouncer":
+				_sound.try_play("Orb Wiff")
+				occupied = true
+				break
 	
 	if not occupied:
 		can_shoot = false

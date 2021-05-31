@@ -38,9 +38,6 @@ tile_data = PoolIntArray( -458749, 0, 65539, -393213, 0, 131075, -327677, 0, 131
 [node name="OnMap" parent="Switch2" index="1"]
 visible = false
 
-[node name="TextureRect" parent="CanvasLayer" index="0"]
-visible = false
-
 [editable path="Map"]
 [editable path="Switch"]
 [editable path="Switch/OffMap"]

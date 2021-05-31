@@ -18,7 +18,7 @@ tile_data = PoolIntArray( 524292, 2, 262146, 524293, 2, 1, 524294, 2, 2, 589828,
 tile_data = PoolIntArray( 524300, 1, 65536, 524301, 1, 65538, 589836, 1, 196608, 589837, 1, 196610 )
 
 [node name="WinCondition" parent="." index="1"]
-position = Vector2( 448, 16 )
+position = Vector2( 448, 32 )
 
 [node name="TimerSwitch" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 88, 216 )
@@ -30,6 +30,9 @@ visible = true
 [node name="Absorb Blocks" parent="TimerSwitch/OffMap" index="3"]
 tile_data = PoolIntArray( -589803, 6, 0, -589802, 6, 0, -458739, 6, 0, -458738, 6, 0 )
 
+[node name="OnMap" parent="TimerSwitch" index="1"]
+visible = false
+
 [node name="Absorb Blocks" parent="TimerSwitch/OnMap" index="3"]
 tile_data = PoolIntArray( -524271, 6, 0, -524270, 6, 0, -393207, 6, 0, -393206, 6, 0 )
 
@@ -39,11 +42,8 @@ position = Vector2( 104, 120 )
 [node name="OffMap" parent="BlockEntrance" index="0"]
 visible = true
 
-[node name="OnMap" parent="BlockEntrance" index="1"]
-visible = false
-
 [node name="Bouncing Blocks" parent="BlockEntrance/OnMap" index="0"]
-tile_data = PoolIntArray( 196606, 0, 0 )
+tile_data = PoolIntArray( 196606, 5, 0 )
 
 [node name="OverlayOn" parent="BlockEntrance" index="4"]
 z_index = 3

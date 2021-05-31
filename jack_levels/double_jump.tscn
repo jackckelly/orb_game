@@ -5,10 +5,10 @@
 [node name="Level" instance=ExtResource( 1 )]
 
 [node name="Bouncing Blocks" parent="Map" index="0"]
-tile_data = PoolIntArray( 524312, 0, 65539, 589848, 0, 131075, 655384, 0, 131075, 720903, 0, 0, 720904, 0, 1, 720905, 0, 1, 720906, 0, 1, 720907, 0, 2, 720917, 0, 0, 720918, 0, 1, 720919, 0, 1, 720920, 0, 327683 )
+tile_data = PoolIntArray( 589847, 0, 65539, 655383, 0, 131075, 720903, 0, 0, 720904, 0, 1, 720905, 0, 1, 720906, 0, 1, 720907, 0, 2, 720916, 0, 0, 720917, 0, 1, 720918, 0, 1, 720919, 0, 327683 )
 
 [node name="WinCondition" parent="." index="1"]
-position = Vector2( 360, 152 )
+position = Vector2( 352, 160 )
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 136, 168 )

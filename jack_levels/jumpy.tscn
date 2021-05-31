@@ -14,32 +14,34 @@ tile_data = PoolIntArray( 196612, 1, 65536, 196613, 1, 65538, 262148, 1, 131072,
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 384, 144 )
 
-[node name="Switch" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Right" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 344, 152 )
+color = 1
 
-[node name="OffMap" parent="Switch" index="0"]
+[node name="OffMap" parent="Right" index="0"]
 visible = true
 
-[node name="Bouncing Blocks" parent="Switch/OffMap" index="0"]
-tile_data = PoolIntArray( -393219, 0, 65539, -327683, 0, 131075, -262147, 0, 131075, -196611, 0, 131075, -131075, 0, 131075, -65539, 0, 131075, -3, 0, 196611 )
-
-[node name="OnMap" parent="Switch" index="1"]
+[node name="OnMap" parent="Right" index="1"]
 visible = false
 
-[node name="Switch2" parent="." index="5" instance=ExtResource( 2 )]
+[node name="Bouncing Blocks" parent="Right/OnMap" index="0"]
+tile_data = PoolIntArray( -393219, 5, 0, -327683, 5, 0, -262147, 5, 0, -196611, 5, 0, -131075, 5, 0, -65539, 5, 0, -3, 5, 0 )
+
+[node name="Left" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 232, 152 )
 
-[node name="OffMap" parent="Switch2" index="0"]
+[node name="OffMap" parent="Left" index="0"]
 visible = true
 
-[node name="Bouncing Blocks" parent="Switch2/OffMap" index="0"]
-tile_data = PoolIntArray( -458749, 0, 65539, -393213, 0, 131075, -327677, 0, 131075, -262141, 0, 131075, -196605, 0, 131075, -131069, 0, 131075, -65533, 0, 196611 )
+[node name="Bouncing Blocks" parent="Left/OffMap" index="0"]
+tile_data = PoolIntArray( -458749, 5, 0, -393213, 5, 0, -327677, 5, 0, -262141, 5, 0, -196605, 5, 0, -131069, 5, 0, -65533, 5, 0 )
 
-[node name="OnMap" parent="Switch2" index="1"]
+[node name="OnMap" parent="Left" index="1"]
 visible = false
 
 [editable path="Map"]
-[editable path="Switch"]
-[editable path="Switch/OffMap"]
-[editable path="Switch2"]
-[editable path="Switch2/OffMap"]
+[editable path="Right"]
+[editable path="Right/OffMap"]
+[editable path="Right/OnMap"]
+[editable path="Left"]
+[editable path="Left/OffMap"]

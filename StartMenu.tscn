@@ -21,20 +21,19 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = -20.0
-margin_right = 256.0
-margin_bottom = 113.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 128.0
+margin_bottom = 40.0
+rect_scale = Vector2( 4, 4 )
 size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Orb Game" type="Label" parent="CenterContainer"]
-margin_left = 100.0
-margin_top = 60.0
-margin_right = 155.0
-margin_bottom = 73.0
+margin_left = 36.0
+margin_top = 13.0
+margin_right = 91.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 2 )
 text = "Orb Game"
 align = 1
@@ -44,10 +43,11 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 196.0
-margin_top = 145.0
-margin_right = 313.0
-margin_bottom = 211.0
+margin_left = 136.0
+margin_top = 125.0
+margin_right = 253.0
+margin_bottom = 192.0
+rect_scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

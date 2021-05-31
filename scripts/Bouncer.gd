@@ -13,6 +13,7 @@ var start_speed = 16 * 5
 var end_speed = 16 * 5
 
 onready var _animated_sprite = $AnimatedSprite
+onready var _sound = get_tree().get_root().get_node("Sound")
 
 func _ready():
 	pass
@@ -30,7 +31,7 @@ func _physics_process(delta):
 		var collider = collide.get_collider()
 		if collider.name == "Absorb Blocks":
 			#note: this should have a separate animation
-			get_tree().get_root().get_node("Sound").get_node("Orb Decay").play()
+			_sound.try_play("Orb Decay")
 			get_parent().get_parent().remove_child(get_parent())
 		#elif not collider.name == "Olauer":
 		else:
@@ -51,7 +52,7 @@ func bounce_and_snap(normal):
 	velocity = velocity.bounce(normal)
 	
 	# play the bounce sound
-	get_tree().get_root().get_node("Sound").get_node("Orb Bounce").play()
+	_sound.try_play("Orb Bounce")
 
 	# convert into polar coordinates
 	var r = velocity.length()
@@ -64,7 +65,7 @@ func bounce_and_snap(normal):
 	velocity = Vector2(cos(rounded_theta) * r, sin(rounded_theta) * r)
 
 func _on_KillTimer_timeout():
-	get_tree().get_root().get_node("Sound").get_node("Orb Decay").play()
+	_sound.try_play("Orb Decay")
 	get_parent().get_parent().remove_child(get_parent())
 
 #func _on_MovementTimer_timeout():

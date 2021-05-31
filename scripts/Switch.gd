@@ -5,6 +5,7 @@ var on = false
 var off_map = null
 var on_map  = null
 onready var _animated_sprite = $AnimatedSprite
+onready var _sound = get_tree().get_root().get_node("Sound")
 
 func _ready():
 	off_map = self.find_node("OffMap")
@@ -16,10 +17,10 @@ func on_body_entered(body):
 	on = !on
 	
 	if on:
-		get_tree().get_root().get_node("Sound").get_node("Switch On").play()
+		_sound.try_play("Switch On")
 		_animated_sprite.animation = "on"
 	else:
-		get_tree().get_root().get_node("Sound").get_node("Switch Off").play()
+		_sound.try_play("Switch Off")
 		_animated_sprite.animation = "off"
 		
 

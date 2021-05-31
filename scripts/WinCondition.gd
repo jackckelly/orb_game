@@ -5,6 +5,7 @@ export var nextLevel = ""
 
 # references
 onready var olauer = get_parent().get_node("Olauer")
+onready var _sound = get_tree().get_root().get_node("Sound")
 
 # states
 var in_win_animation = false
@@ -30,10 +31,12 @@ func _process(delta):
 
 func on_body_entered(body):
 	# win sound
-	# TODO: win animation
-	var win_sound = get_tree().get_root().get_node("Sound").get_node("Win")
-	win_sound.connect("finished", self, "change_level")
-	win_sound.play()
+	_sound.try_play("Win")
+	
+	# win animation
+	var level_switch_timer = get_node("LevelSwitchTimer")
+	level_switch_timer.connect("timeout", self, "change_level")
+	level_switch_timer.start()
 	
 	var orbs = get_parent().get_node("OrbManager")
 	

@@ -27,6 +27,7 @@ var velocity = Vector2()
 var should_snap = true
 # animation
 onready var _animated_sprite = $AnimatedSprite
+onready var _sound = get_tree().get_root().get_node("Sound")
 
 # anti-squish rays
 onready var _ray_north = $RayNorth
@@ -80,13 +81,13 @@ func get_input(delta):
 	velocity.x += dvx
 
 	if is_on_floor() and Input.is_action_just_pressed("ui_select"):
-		get_tree().get_root().get_node("Sound").get_node("Jump").play()
+		_sound.try_play("Jump")
 		velocity.y += initial_jump_y_speed
 		set_animation("jump_up")
 		should_snap = false
 	
 	if Input.is_action_just_released("ui_select") and velocity.y < 0:
-		get_tree().get_root().get_node("Sound").get_node("Jump").stop()
+		_sound.get_node("Jump").stop()
 		velocity.y = 0
 		should_snap = true
 	
@@ -156,13 +157,13 @@ func shoot():
 		var bitmask = 0b00000000000010000001
 		var result = space_state.intersect_ray(self.transform.origin, t, [self], bitmask)
 		if result:
-			get_tree().get_root().get_node("Sound").get_node("Orb Wiff").play()
+			_sound.try_play("Orb Wiff")
 			occupied = true
 			break
 	
 	if not occupied:
 		can_shoot = false
-		get_tree().get_root().get_node("Sound").get_node("Cast Orb").play()
+		_sound.try_play("Cast Orb")
 
 		get_node("CooldownTimer").start()
 		
@@ -183,7 +184,7 @@ func shoot():
 
 func restart():
 	if not is_win_locked:
-		get_tree().get_root().get_node("Sound").get_node("Death").play()
+		_sound.try_play("Death")
 	get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_CooldownTimer_timeout():

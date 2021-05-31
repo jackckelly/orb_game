@@ -1,0 +1,19 @@
+Add win sound and animation, add death sound
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch add-sound-effects
+# Your branch is up to date with 'origin/add-sound-effects'.
+#
+# Changes to be committed:
+#	modified:   Sound.tscn
+#	new file:   assets/death.wav
+#	new file:   assets/death.wav.import
+#	new file:   assets/startup.wav
+#	new file:   assets/startup.wav.import
+#	modified:   prefabs/Olauer.tscn
+#	modified:   prefabs/Orb.tscn
+#	modified:   scripts/Olauer.gd
+#	modified:   scripts/StartMenu.gd
+#	modified:   scripts/WinCondition.gd
+#

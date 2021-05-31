@@ -11,6 +11,8 @@ func _ready():
 	
 	off_map = self.get_node("OffMap")
 	on_map = self.get_node("OnMap")
+	self.remove_child(on_map)
+	connect("body_entered", self, "on_body_entered")
 	
 	"""
 	var occupied_cells = []
@@ -25,8 +27,7 @@ func _ready():
 	var off_map_tiles = off_map.get_used_tiles()
 
 
-	self.remove_child(on_map)
-	connect("body_entered", self, "on_body_entered")
+
 	"""
 
 func on_body_entered(body):

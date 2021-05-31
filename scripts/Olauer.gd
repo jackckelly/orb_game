@@ -17,12 +17,17 @@ var shoot_check_distance = 24
 var can_shoot = true
 var is_right = true
 
+# variables for level transitions
+var is_win_locked = false
+var restart_is_death = true
+
 # player's current velocity
 var velocity = Vector2()
 
 var should_snap = true
 # animation
 onready var _animated_sprite = $AnimatedSprite
+onready var _sound = get_tree().get_root().get_node("Sound")
 
 # anti-squish rays
 onready var _ray_north = $RayNorth
@@ -76,11 +81,13 @@ func get_input(delta):
 	velocity.x += dvx
 
 	if is_on_floor() and Input.is_action_just_pressed("ui_select"):
+		_sound.try_play("Jump")
 		velocity.y += initial_jump_y_speed
 		set_animation("jump_up")
 		should_snap = false
 	
 	if Input.is_action_just_released("ui_select") and velocity.y < 0:
+		_sound.get_node("Jump").stop()
 		velocity.y = 0
 		should_snap = true
 	
@@ -88,6 +95,9 @@ func get_input(delta):
 		shoot()
 
 func _physics_process(delta):
+	if is_win_locked:
+		return
+
 	get_input(delta)
 	velocity.y += gravity * delta
 	
@@ -104,8 +114,6 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -1), true)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name == "KillZone":
-			restart()
 		if collision.collider.name == "Spikes":
 			restart()
 	
@@ -149,11 +157,14 @@ func shoot():
 		var bitmask = 0b00000000000010000001
 		var result = space_state.intersect_ray(self.transform.origin, t, [self], bitmask)
 		if result:
+			_sound.try_play("Orb Wiff")
 			occupied = true
 			break
 	
 	if not occupied:
 		can_shoot = false
+		_sound.try_play("Cast Orb")
+
 		get_node("CooldownTimer").start()
 		
 		var projectile = load("res://prefabs/Orb.tscn")
@@ -172,6 +183,8 @@ func shoot():
 		get_tree().get_root().get_node("Level").get_node("OrbManager").add_child(orb)
 
 func restart():
+	if not is_win_locked:
+		_sound.try_play("Death")
 	get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_CooldownTimer_timeout():
@@ -185,7 +198,6 @@ func set_animation(name):
 func _on_AnimatedSprite_animation_finished():
 	if _animated_sprite.animation == 'shoot':
 		_animated_sprite.play('idle')
-
 
 func _on_VisibilityNotifier2D_screen_exited():
 	restart()

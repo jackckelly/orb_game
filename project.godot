@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="making_magic"
-run/main_scene="res://bill_levels/first_pass.tscn"
+run/main_scene="res://StartMenu.tscn"
 
 [autoload]
 
-BackgroundMusic="*res://BackgroundMusic.tscn"
 PauseScreen="*res://PauseScreen.tscn"
+Sound="*res://Sound.tscn"
 
 [display]
 

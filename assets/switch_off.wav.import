@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/switch_off.wav-38a5c603ee34c054ab63b47507bce0ac.sample"
+
+[deps]
+
+source_file="res://assets/switch_off.wav"
+dest_files=[ "res://.import/switch_off.wav-38a5c603ee34c054ab63b47507bce0ac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

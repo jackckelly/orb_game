@@ -22,18 +22,16 @@ position = Vector2( 448, 16 )
 
 [node name="TimerSwitch" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 88, 216 )
+color = 1
 
 [node name="OffMap" parent="TimerSwitch" index="0"]
 visible = true
 
 [node name="Absorb Blocks" parent="TimerSwitch/OffMap" index="3"]
-tile_data = PoolIntArray( -589803, 1, 0, -589802, 1, 2, -458739, 1, 0, -458738, 1, 2 )
-
-[node name="OnMap" parent="TimerSwitch" index="1"]
-visible = false
+tile_data = PoolIntArray( -589803, 6, 0, -589802, 6, 0, -458739, 6, 0, -458738, 6, 0 )
 
 [node name="Absorb Blocks" parent="TimerSwitch/OnMap" index="3"]
-tile_data = PoolIntArray( -524271, 1, 0, -524270, 1, 2, -393207, 1, 0, -393206, 1, 2 )
+tile_data = PoolIntArray( -524271, 6, 0, -524270, 6, 0, -393207, 6, 0, -393206, 6, 0 )
 
 [node name="BlockEntrance" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 104, 120 )
@@ -46,6 +44,12 @@ visible = false
 
 [node name="Bouncing Blocks" parent="BlockEntrance/OnMap" index="0"]
 tile_data = PoolIntArray( 196606, 0, 0 )
+
+[node name="OverlayOn" parent="BlockEntrance" index="4"]
+z_index = 3
+
+[node name="OverlayOff" parent="BlockEntrance" index="5"]
+z_index = 3
 
 [editable path="Map"]
 [editable path="TimerSwitch"]

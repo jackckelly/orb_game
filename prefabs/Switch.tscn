@@ -37,10 +37,10 @@ __meta__ = {
 }
 
 [node name="OffMap" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 8, 8 )
 
 [node name="OnMap" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -51,3 +51,11 @@ z_index = -2
 frames = SubResource( 4 )
 animation = "off"
 playing = true
+
+[node name="OverlayOn" type="TileMap" parent="."]
+position = Vector2( 8, 8 )
+format = 1
+
+[node name="OverlayOff" type="TileMap" parent="."]
+position = Vector2( 8, 8 )
+format = 1

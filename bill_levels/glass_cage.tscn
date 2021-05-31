@@ -14,17 +14,32 @@ position = Vector2( 248, 72 )
 [node name="LeftSwitch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 168, 72 )
 
+[node name="OffMap" parent="LeftSwitch" index="0"]
+visible = true
+
 [node name="Passing Blocks" parent="LeftSwitch/OffMap" index="2"]
 tile_data = PoolIntArray( -131069, 2, 262146, -131068, 2, 1, -131067, 2, 262147, -65533, 2, 131075, -65531, 2, 131075, 3, 2, 327682, 4, 2, 1, 5, 2, 327683 )
 
+[node name="OnMap" parent="LeftSwitch" index="1"]
+visible = false
+
+[node name="OverlayOn" parent="LeftSwitch" index="4"]
+visible = true
+
+[node name="OverlayOff" parent="LeftSwitch" index="5"]
+visible = true
+
 [node name="RightSwitch" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 296, 72 )
+
+[node name="OffMap" parent="RightSwitch" index="0"]
+visible = true
 
 [node name="Spikes" parent="RightSwitch/OffMap" index="4"]
 tile_data = PoolIntArray( 131067, 3, 0, 131068, 3, 0, 131069, 3, 0 )
 
 [node name="OnMap" parent="RightSwitch" index="1"]
-visible = true
+visible = false
 
 [node name="Absorb Blocks" parent="RightSwitch/OnMap" index="3"]
 tile_data = PoolIntArray( -65544, 1, 65536, -65543, 1, 65537, -65542, 1, 65538, -8, 1, 131072, -7, 1, 131073, -6, 1, 131074, 65528, 1, 196608, 65529, 1, 196609, 65530, 1, 196610 )

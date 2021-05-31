@@ -7,10 +7,26 @@ var on_map  = null
 onready var _animated_sprite = $AnimatedSprite
 
 func _ready():
-	off_map = self.find_node("OffMap")
-	on_map  = self.find_node("OnMap")
+	
+	off_map = self.get_node("OffMap")
+	on_map = self.get_node("OnMap")
+	
+	"""
+	var occupied_cells = []
+	for child_map in off_map.get_children():
+		occupied_cells = occupied_cells + off_map.get_used_cells()
+	
+	var overlay_off = self.get_node("OverlayOff")
+	for cell in occupied_cells:
+		#overlay_off.set_cellv()
+	
+	var on_map_tiles = on_map.get_used_tiles()
+	var off_map_tiles = off_map.get_used_tiles()
+
+
 	self.remove_child(on_map)
 	connect("body_entered", self, "on_body_entered")
+	"""
 
 func on_body_entered(body):
 	on = !on

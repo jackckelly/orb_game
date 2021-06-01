@@ -12,7 +12,7 @@ tile_data = PoolIntArray( 655377, 4, 65537 )
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 328, 80 )
-nextLevel = "horseshoe"
+nextLevel = "intro_to_absorb"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 232, 168 )

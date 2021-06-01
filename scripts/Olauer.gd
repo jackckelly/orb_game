@@ -91,6 +91,15 @@ func get_input(delta):
 		_sound.get_node("Jump").stop()
 		velocity.y = 0
 		should_snap = true
+		
+	if Input.is_action_just_pressed("ui_clear"):
+		var orbs = get_tree().get_root().get_node("Level").get_node("OrbManager")
+		var one_orb = false
+		for orb in orbs.get_children():
+			orbs.remove_child(orb)
+			one_orb = true
+		if one_orb:
+			_sound.try_play("Orb Decay")
 	
 	if Input.is_action_just_pressed("ui_action") and can_shoot:
 		shoot()

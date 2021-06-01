@@ -7,15 +7,13 @@
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 248, 248 )
+nextLevel = "orb_bounce"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 248, 72 )
 
 [node name="LeftSwitch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 168, 72 )
-
-[node name="OffMap" parent="LeftSwitch" index="0"]
-visible = true
 
 [node name="Passing Blocks" parent="LeftSwitch/OffMap" index="2"]
 tile_data = PoolIntArray( -131069, 2, 262146, -131068, 2, 1, -131067, 2, 262147, -65533, 2, 131075, -65531, 2, 131075, 3, 2, 327682, 4, 2, 1, 5, 2, 327683 )
@@ -26,9 +24,6 @@ visible = false
 [node name="RightSwitch" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 296, 72 )
 color = 1
-
-[node name="OffMap" parent="RightSwitch" index="0"]
-visible = true
 
 [node name="Spikes" parent="RightSwitch/OffMap" index="4"]
 tile_data = PoolIntArray( 131067, 3, 0, 131068, 3, 0, 131069, 3, 0 )

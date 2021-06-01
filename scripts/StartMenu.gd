@@ -24,23 +24,29 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept") or\
 	Input.is_action_just_pressed("ui_action"):
-		_sound.try_play("Menu Select")
+		# once all menu options are available,
+		# we can uncomment this.
+		# _sound.try_play("Menu Select")
 		var option = options[index]
 		
 		if option == "Play":
 			get_tree().change_scene("res://levels/first_steps.tscn")
 			get_tree().get_root().get_node("PauseScreen").enabled = true
+			_sound.try_play("Menu Select")
 			_sound.try_play("Background Music")
 			return
 		
 		if option == "Level Select":
-			print("level select")
+			_sound.try_play("Orb Wiff")
 			return
 		
 		if option == "Options":
-			print("options")
+			_sound.try_play("Orb Wiff")
 			return
 			
 		if option == "Quit":
-			get_tree().quit()
-			return
+			if OS.get_name() == "HTML5":
+				_sound.try_play("Orb Wiff")
+			else:
+				_sound.try_play("Menu Select")
+				get_tree().quit()

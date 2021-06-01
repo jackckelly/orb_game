@@ -19,13 +19,11 @@ tile_data = PoolIntArray( 524300, 1, 65536, 524301, 1, 65538, 589836, 1, 196608,
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 448, 32 )
+nextLevel = "tricky_switchy"
 
 [node name="TimerSwitch" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 88, 216 )
 color = 1
-
-[node name="OffMap" parent="TimerSwitch" index="0"]
-visible = true
 
 [node name="Absorb Blocks" parent="TimerSwitch/OffMap" index="3"]
 tile_data = PoolIntArray( -589803, 6, 0, -589802, 6, 0, -458739, 6, 0, -458738, 6, 0 )
@@ -38,9 +36,6 @@ tile_data = PoolIntArray( -524271, 6, 0, -524270, 6, 0, -393207, 6, 0, -393206, 
 
 [node name="BlockEntrance" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 104, 120 )
-
-[node name="OffMap" parent="BlockEntrance" index="0"]
-visible = true
 
 [node name="Bouncing Blocks" parent="BlockEntrance/OnMap" index="0"]
 tile_data = PoolIntArray( 196606, 5, 0 )

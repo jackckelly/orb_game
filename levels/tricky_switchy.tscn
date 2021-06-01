@@ -19,6 +19,7 @@ visible = false
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 224, 248 )
+nextLevel = "double_jump"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 168, 128 )

@@ -19,12 +19,10 @@ tile_data = PoolIntArray( 131087, 1, 65536, 131088, 1, 65537, 131089, 1, 65538, 
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 408, 88 )
+nextLevel = "3_switch"
 
 [node name="Switch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 200, 152 )
-
-[node name="OffMap" parent="Switch" index="0"]
-visible = true
 
 [node name="OnMap" parent="Switch" index="1"]
 visible = false

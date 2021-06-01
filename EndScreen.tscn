@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
 
 [node name="Control" type="Control"]
@@ -57,6 +57,26 @@ margin_right = 213.0
 margin_bottom = 86.0
 custom_fonts/font = ExtResource( 2 )
 text = "THAT'S ALL WE HAVE SO FAR.  "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+margin_right = 512.0
+margin_bottom = 450.0
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FollowUp" type="Label" parent="CenterContainer3"]
+margin_left = 186.0
+margin_top = 218.0
+margin_right = 325.0
+margin_bottom = 231.0
+custom_fonts/font = ExtResource( 2 )
+text = "PRESS [RETURN] TO EXIT."
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false

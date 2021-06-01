@@ -15,6 +15,7 @@ tile_data = PoolIntArray( 917516, 2, 65539, 917520, 2, 65539, 917524, 2, 65539, 
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 424, 56 )
+nextLevel = "over_under"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 120, 264 )

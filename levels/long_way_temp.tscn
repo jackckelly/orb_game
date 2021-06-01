@@ -9,7 +9,7 @@
 tile_data = PoolIntArray( 1048576, 0, 65539, 1114112, 0, 327682, 1114113, 0, 1, 1114114, 0, 1, 1114115, 0, 2 )
 
 [node name="Corners" parent="Map" index="1"]
-tile_data = PoolIntArray( 131098, 4, 1, 1048602, 4, 65537 )
+tile_data = PoolIntArray( 1048602, 4, 65537 )
 
 [node name="Passing Blocks" parent="Map" index="2"]
 tile_data = PoolIntArray( 983046, 2, 65539, 983051, 2, 65539, 983056, 2, 65539, 983061, 2, 65539, 1048582, 2, 131075, 1048587, 2, 131075, 1048592, 2, 131075, 1048597, 2, 131075, 1114118, 2, 196611, 1114123, 2, 196611, 1114128, 2, 196611, 1114133, 2, 196611 )
@@ -21,7 +21,7 @@ tile_data = PoolIntArray( 524312, 1, 65539, 524316, 1, 65539, 589848, 1, 131075,
 tile_data = PoolIntArray( 917510, 3, 0, 917515, 3, 0, 917520, 3, 0, 917525, 3, 0 )
 
 [node name="WinCondition" parent="." index="1"]
-position = Vector2( 248, 48 )
+position = Vector2( 424, 48 )
 nextLevel = "../EndMenu"
 
 [node name="Olauer" parent="." index="2"]
@@ -61,60 +61,6 @@ color = 4
 [node name="Spikes" parent="Upswitch5/OffMap" index="4"]
 tile_data = PoolIntArray( -131074, 3, 0 )
 
-[node name="Step1" parent="." index="8" instance=ExtResource( 1 )]
-position = Vector2( 376, 88 )
-
-[node name="Passing Blocks" parent="Step1/OnMap" index="2"]
-tile_data = PoolIntArray( -131072, 2, 3 )
-
-[node name="Step2" parent="." index="9" instance=ExtResource( 1 )]
-position = Vector2( 392, 40 )
-
-[node name="Passing Blocks" parent="Step2/OnMap" index="2"]
-tile_data = PoolIntArray( 131070, 2, 3 )
-
-[node name="Step3" parent="." index="10" instance=ExtResource( 1 )]
-position = Vector2( 344, 88 )
-color = 1
-
-[node name="Passing Blocks" parent="Step3/OnMap" index="2"]
-tile_data = PoolIntArray( -131072, 2, 3 )
-
-[node name="Step4" parent="." index="11" instance=ExtResource( 1 )]
-position = Vector2( 360, 40 )
-color = 1
-
-[node name="Passing Blocks" parent="Step4/OnMap" index="2"]
-tile_data = PoolIntArray( 131070, 2, 3 )
-
-[node name="Step5" parent="." index="12" instance=ExtResource( 1 )]
-position = Vector2( 312, 88 )
-color = 2
-
-[node name="Passing Blocks" parent="Step5/OnMap" index="2"]
-tile_data = PoolIntArray( -131072, 2, 3 )
-
-[node name="Step6" parent="." index="13" instance=ExtResource( 1 )]
-position = Vector2( 328, 40 )
-color = 2
-
-[node name="Passing Blocks" parent="Step6/OnMap" index="2"]
-tile_data = PoolIntArray( 131070, 2, 3 )
-
-[node name="Step7" parent="." index="14" instance=ExtResource( 1 )]
-position = Vector2( 280, 88 )
-color = 3
-
-[node name="Passing Blocks" parent="Step7/OnMap" index="2"]
-tile_data = PoolIntArray( -131072, 2, 3 )
-
-[node name="Step8" parent="." index="15" instance=ExtResource( 1 )]
-position = Vector2( 296, 40 )
-color = 3
-
-[node name="Passing Blocks" parent="Step8/OnMap" index="2"]
-tile_data = PoolIntArray( 131070, 2, 3 )
-
 [editable path="Map"]
 [editable path="Upswitch1"]
 [editable path="Upswitch1/OffMap"]
@@ -126,19 +72,3 @@ tile_data = PoolIntArray( 131070, 2, 3 )
 [editable path="Upswitch4/OffMap"]
 [editable path="Upswitch5"]
 [editable path="Upswitch5/OffMap"]
-[editable path="Step1"]
-[editable path="Step1/OnMap"]
-[editable path="Step2"]
-[editable path="Step2/OnMap"]
-[editable path="Step3"]
-[editable path="Step3/OnMap"]
-[editable path="Step4"]
-[editable path="Step4/OnMap"]
-[editable path="Step5"]
-[editable path="Step5/OnMap"]
-[editable path="Step6"]
-[editable path="Step6/OnMap"]
-[editable path="Step7"]
-[editable path="Step7/OnMap"]
-[editable path="Step8"]
-[editable path="Step8/OnMap"]

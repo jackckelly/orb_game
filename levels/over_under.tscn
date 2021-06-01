@@ -16,6 +16,9 @@ tile_data = PoolIntArray( 524305, 1, 65539, 589841, 1, 131075, 655377, 1, 131075
 [node name="Spikes" parent="Map" index="4"]
 tile_data = PoolIntArray( 458769, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0 )
 
+[node name="WinCondition" parent="." index="1"]
+nextLevel = "long_way_temp"
+
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 160, 136 )
 

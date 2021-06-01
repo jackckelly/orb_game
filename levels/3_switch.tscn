@@ -19,6 +19,7 @@ tile_data = PoolIntArray( 9, 1, 65539, 65545, 1, 131075, 131081, 1, 131075, 1966
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 400, 256 )
+nextLevel = "switch_timer"
 
 [node name="1" parent="." index="2" instance=ExtResource( 1 )]
 position = Vector2( 232, 56 )
@@ -56,7 +57,7 @@ tile_data = PoolIntArray( 5, 5, 0, 65541, 5, 0, 131077, 5, 0, 196613, 5, 0, 2621
 tile_data = PoolIntArray( 196602, 3, 0, 262138, 3, 0, 262139, 3, 0, 262140, 3, 0, 262141, 3, 0, 262142, 3, 0, 262143, 3, 0 )
 
 [node name="Olauer" parent="." index="5"]
-position = Vector2( 128, 256 )
+position = Vector2( 128, 264 )
 
 [editable path="Map"]
 [editable path="1"]

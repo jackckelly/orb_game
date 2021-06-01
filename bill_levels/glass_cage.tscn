@@ -25,6 +25,7 @@ visible = false
 
 [node name="RightSwitch" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 296, 72 )
+color = 1
 
 [node name="OffMap" parent="RightSwitch" index="0"]
 visible = true

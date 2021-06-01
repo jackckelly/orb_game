@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://prefabs/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/Switch.tscn" type="PackedScene" id=2]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="Bouncing Blocks" parent="Map" index="0"]
+tile_data = PoolIntArray( 589833, 0, 65536, 589834, 0, 65537, 589835, 0, 65538, 589840, 0, 65536, 589841, 0, 65537, 589842, 0, 65538, 655369, 0, 131072, 655370, 0, 131073, 655371, 0, 131074, 655376, 0, 131072, 655377, 0, 131073, 655378, 0, 131074, 720905, 0, 131072, 720906, 0, 131073, 720907, 0, 131074, 720912, 0, 131072, 720913, 0, 131073, 720914, 0, 131074, 786441, 0, 131072, 786442, 0, 131073, 786443, 0, 131074, 786448, 0, 131072, 786449, 0, 131073, 786450, 0, 131074, 851977, 0, 131072, 851978, 0, 131073, 851979, 0, 131074, 851984, 0, 131072, 851985, 0, 131073, 851986, 0, 131074, 917513, 0, 131072, 917514, 0, 131073, 917515, 0, 131074, 917520, 0, 131072, 917521, 0, 131073, 917522, 0, 131074, 983049, 0, 131072, 983050, 0, 131073, 983051, 0, 131074, 983056, 0, 131072, 983057, 0, 131073, 983058, 0, 131074, 1048585, 0, 131072, 1048586, 0, 131073, 1048587, 0, 131074, 1048592, 0, 131072, 1048593, 0, 131073, 1048594, 0, 131074, 1114121, 0, 131072, 1114122, 0, 131073, 1114123, 0, 327680, 1114124, 0, 65537, 1114125, 0, 65537, 1114126, 0, 65537, 1114127, 0, 65537, 1114128, 0, 327681, 1114129, 0, 131073, 1114130, 0, 131074, 1179657, 0, 196608, 1179658, 0, 196609, 1179659, 0, 196609, 1179660, 0, 196609, 1179661, 0, 196609, 1179662, 0, 196609, 1179663, 0, 196609, 1179664, 0, 196609, 1179665, 0, 196609, 1179666, 0, 196610 )
+
+[node name="Corners" parent="Map" index="1"]
+visible = false
+
+[node name="Absorb Blocks" parent="Map" index="3"]
+visible = false
+
+[node name="Spikes" parent="Map" index="4"]
+visible = false
+
+[node name="WinCondition" parent="." index="1"]
+position = Vector2( 224, 248 )
+
+[node name="Olauer" parent="." index="2"]
+position = Vector2( 168, 128 )
+
+[node name="1" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 328, 136 )
+
+[node name="Bouncing Blocks" parent="1/OffMap" index="0"]
+tile_data = PoolIntArray( 327671, 5, 0, 327672, 5, 0, 327673, 5, 0, 327674, 5, 0 )
+
+[node name="2" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 360, 136 )
+color = 1
+on = true
+
+[node name="Bouncing Blocks" parent="2/OffMap" index="0"]
+tile_data = PoolIntArray( 262133, 5, 0, 262134, 5, 0, 262135, 5, 0, 262136, 5, 0 )
+
+[node name="3" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 392, 136 )
+color = 2
+
+[node name="Bouncing Blocks" parent="3/OffMap" index="0"]
+tile_data = PoolIntArray( 196595, 5, 0, 196596, 5, 0, 196597, 5, 0, 196598, 5, 0 )
+
+[node name="4" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 424, 136 )
+color = 3
+on = true
+
+[node name="Corners" parent="4/OffMap" index="1"]
+tile_data = PoolIntArray( 131057, 5, 0, 131058, 5, 0, 131059, 5, 0, 131060, 5, 0 )
+
+[node name="5" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 456, 136 )
+color = 4
+
+[node name="Bouncing Blocks" parent="5/OffMap" index="0"]
+tile_data = PoolIntArray( 65519, 5, 0, 65520, 5, 0, 65521, 5, 0, 65522, 5, 0 )
+
+[editable path="Map"]
+[editable path="1"]
+[editable path="1/OffMap"]
+[editable path="2"]
+[editable path="2/OffMap"]
+[editable path="3"]
+[editable path="3/OffMap"]
+[editable path="4"]
+[editable path="4/OffMap"]
+[editable path="5"]
+[editable path="5/OffMap"]

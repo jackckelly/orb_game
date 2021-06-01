@@ -13,7 +13,7 @@ var color_data = {
 	4: [8, 9, 'gray_on', 'gray_off'],
 }
 
-var on = false
+export var on = false
 
 var off_map = null
 var on_map  = null
@@ -28,9 +28,14 @@ func _ready():
 	on_map = self.get_node("OnMap")
 	overlay_off = self.get_node("OverlayOff")
 	overlay_on = self.get_node("OverlayOn")
+	
+	if !on:
+		self.remove_child(on_map)
+		overlay_off.visible = false
+	else:
+		self.remove_child(off_map)
+		overlay_on.visible = false
 
-	self.remove_child(on_map)
-	overlay_off.visible = false
 	connect("body_entered", self, "on_body_entered")
 	
 	var off_cells = []

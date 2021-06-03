@@ -8,7 +8,7 @@ var current_level = 0
 
 var levels = [
 	"first_steps",
-	"long_way_temp",
+	"a_little_longer",
 	"pit",
 	"wall",
 	"lift",
@@ -16,7 +16,7 @@ var levels = [
 	"horseshoe",
 	"leap_of_faith",
 	"shoot_orb_twice",
-	"up_and_rebounc",
+	"up_and_rebound",
 	"first_pass",
 	"glass_cage",
 	"orb_bounce",
@@ -45,4 +45,9 @@ func load_level(id):
 func next_level():
 	current_level += 1
 	load_level(current_level)
-	
+
+func display_name(id):
+	return levels[id].to_upper().split("_").join(" ")
+
+func display_text(id):
+	return str(id + 1) + ". " + display_name(id)

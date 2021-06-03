@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/select.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,7 +13,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 512.0
 margin_bottom = 300.0
 color = Color( 0, 0, 0, 1 )
@@ -21,8 +31,9 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = -0.5
 margin_right = 128.0
-margin_bottom = 40.0
+margin_bottom = 29.5
 rect_scale = Vector2( 4, 4 )
 size_flags_stretch_ratio = 0.0
 __meta__ = {
@@ -31,9 +42,9 @@ __meta__ = {
 
 [node name="Orb Game" type="Label" parent="CenterContainer"]
 margin_left = 36.0
-margin_top = 13.0
+margin_top = 8.0
 margin_right = 91.0
-margin_bottom = 26.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
 text = "Orb Game"
 align = 1
@@ -44,9 +55,9 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 136.0
-margin_top = 125.0
+margin_top = 115.0
 margin_right = 253.0
-margin_bottom = 192.0
+margin_bottom = 182.0
 rect_scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true,

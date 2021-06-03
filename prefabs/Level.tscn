@@ -12,7 +12,6 @@
 
 [node name="WinCondition" parent="." instance=ExtResource( 5 )]
 position = Vector2( 344, 152 )
-nextLevel = "default"
 
 [node name="Olauer" parent="." instance=ExtResource( 4 )]
 position = Vector2( 168, 152 )

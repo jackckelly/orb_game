@@ -38,7 +38,8 @@ func _process(delta):
 			return
 		
 		if option == "Level Select":
-			_sound.try_play("Orb Wiff")
+			_sound.try_play("Menu Select")
+			get_tree().change_scene("res://LevelSelect.tscn")
 			return
 		
 		if option == "Options":

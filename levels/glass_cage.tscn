@@ -16,7 +16,7 @@ position = Vector2( 248, 72 )
 position = Vector2( 168, 72 )
 
 [node name="Passing Blocks" parent="LeftSwitch/OffMap" index="2"]
-tile_data = PoolIntArray( -131069, 2, 262146, -131068, 2, 1, -131067, 2, 262147, -65533, 2, 131075, -65531, 2, 131075, 3, 2, 327682, 4, 2, 1, 5, 2, 327683 )
+tile_data = PoolIntArray( -131069, 7, 0, -131068, 7, 0, -131067, 7, 0, -65533, 7, 0, -65531, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0 )
 
 [node name="OnMap" parent="LeftSwitch" index="1"]
 visible = false
@@ -32,7 +32,7 @@ tile_data = PoolIntArray( 131067, 3, 0, 131068, 3, 0, 131069, 3, 0 )
 visible = false
 
 [node name="Absorb Blocks" parent="RightSwitch/OnMap" index="3"]
-tile_data = PoolIntArray( -65544, 1, 65536, -65543, 1, 65537, -65542, 1, 65538, -8, 1, 131072, -7, 1, 131073, -6, 1, 131074, 65528, 1, 196608, 65529, 1, 196609, 65530, 1, 196610 )
+tile_data = PoolIntArray( -65544, 6, 0, -65543, 6, 0, -65542, 6, 0, -8, 6, 0, -7, 6, 0, -6, 6, 0, 65528, 6, 0, 65529, 6, 0, 65530, 6, 0 )
 
 [editable path="Map"]
 [editable path="LeftSwitch"]

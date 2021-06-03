@@ -28,7 +28,7 @@ position = Vector2( 200, 152 )
 visible = false
 
 [node name="Bouncing Blocks" parent="Switch/OnMap" index="0"]
-tile_data = PoolIntArray( -65541, 0, 0 )
+tile_data = PoolIntArray( -65541, 5, 0 )
 
 [editable path="Map"]
 [editable path="Switch"]

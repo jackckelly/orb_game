@@ -17,6 +17,7 @@ run/main_scene="res://StartMenu.tscn"
 
 PauseScreen="*res://PauseScreen.tscn"
 Sound="*res://Sound.tscn"
+LevelManager="*res://LevelManager.tscn"
 
 [display]
 

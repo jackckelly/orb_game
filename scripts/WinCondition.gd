@@ -1,12 +1,10 @@
 extends Area2D
 
-# fields
-export var nextLevel = ""
 
 # references
 onready var olauer = get_parent().get_node("Olauer")
 onready var _sound = get_tree().get_root().get_node("Sound")
-
+onready var level_manager = get_tree().get_root().get_node("LevelManager")
 # states
 var in_win_animation = false
 
@@ -50,7 +48,7 @@ func on_body_entered(body):
 func change_level():
 	var notifier = get_parent().get_node("Olauer/VisibilityNotifier2D")
 	olauer.remove_child(notifier)
-	get_tree().change_scene("res://levels/" + nextLevel + ".tscn")
+	level_manager.next_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -5,6 +5,7 @@ var index = 0
 
 onready var selections = $HBoxContainer/Selections
 onready var _sound = get_tree().get_root().get_node("Sound")
+onready var level_manager = get_tree().get_root().get_node("LevelManager")
 
 func _ready():
 	_sound.try_play("Startup")
@@ -30,7 +31,7 @@ func _process(delta):
 		var option = options[index]
 		
 		if option == "Play":
-			get_tree().change_scene("res://levels/first_steps.tscn")
+			level_manager.load_level(0)
 			get_tree().get_root().get_node("PauseScreen").enabled = true
 			_sound.try_play("Menu Select")
 			_sound.try_play("Background Music")

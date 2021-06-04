@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://OptionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/select.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = -0.5
+margin_right = 128.0
+margin_bottom = 29.5
+rect_scale = Vector2( 4, 4 )
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsText" type="Label" parent="CenterContainer"]
+margin_left = 41.0
+margin_top = 8.0
+margin_right = 87.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 136.0
+margin_top = 130.0
+margin_right = 253.0
+margin_bottom = 197.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Selections" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 67.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Music" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Sounds" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer2"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/Selections"]
+margin_top = 37.0
+margin_right = 16.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 13, 13 )
+
+[node name="Back" type="TextureRect" parent="HBoxContainer/Selections/MarginContainer3"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 20.0
+margin_right = 58.0
+margin_bottom = 67.0
+
+[node name="Music" type="Label" parent="HBoxContainer/Labels"]
+margin_right = 38.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "MUSIC:"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sounds" type="Label" parent="HBoxContainer/Labels"]
+margin_top = 17.0
+margin_right = 38.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "SOUND:"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Label" parent="HBoxContainer/Labels"]
+margin_top = 34.0
+margin_right = 38.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

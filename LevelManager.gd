@@ -40,11 +40,15 @@ func _ready():
 #	pass
 
 func load_level(id):
+	current_level = id
 	get_tree().change_scene("res://levels/" + levels[id] + ".tscn")
 
 func next_level():
 	current_level += 1
-	load_level(current_level)
+	if current_level >= len(levels):
+		get_tree().change_scene("res://EndScreen.tscn")
+	else:
+		load_level(current_level)
 
 func display_name(id):
 	return levels[id].to_upper().split("_").join(" ")

@@ -18,8 +18,8 @@ z_as_relative = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 4
-collision_layer = 130
-collision_mask = 130
+collision_layer = 128
+collision_mask = 128
 format = 1
 
 [node name="Passing Blocks" type="TileMap" parent="."]

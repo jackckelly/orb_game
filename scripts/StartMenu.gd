@@ -23,8 +23,7 @@ func _process(delta):
 		index += 1
 		selections.get_child(index).get_child(0).visible = true
 		
-	if Input.is_action_just_pressed("ui_accept") or\
-	Input.is_action_just_pressed("ui_action"):
+	if Input.is_action_just_pressed("ui_accept"):
 		# once all menu options are available,
 		# we can uncomment this.
 		# _sound.try_play("Menu Select")

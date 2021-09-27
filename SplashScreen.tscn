@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/SplashScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/OrbAndOlauerSplash.gd" type="Script" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/Olauer.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://assets/Orb.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://scripts/PressStartSplash.gd" type="Script" id=7]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = -0.5
+margin_right = 128.0
+margin_bottom = 29.5
+rect_scale = Vector2( 4, 4 )
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Orb Game" type="Label" parent="CenterContainer"]
+margin_left = 36.0
+margin_top = 8.0
+margin_right = 91.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Orb Game"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+margin_left = 176.0
+margin_top = 128.0
+margin_right = 334.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PressStartSplash" type="Label" parent="CenterContainer2"]
+margin_top = 13.0
+margin_right = 158.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "Press [Start] to continue"
+uppercase = true
+script = ExtResource( 7 )
+
+[node name="OrbAndOlauerSplash" type="Node2D" parent="."]
+position = Vector2( -8, 152 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OlauerAnimation" type="AnimatedSprite" parent="OrbAndOlauerSplash"]
+frames = ExtResource( 5 )
+animation = "idle"
+playing = true
+
+[node name="OrbAnimation" type="AnimatedSprite" parent="OrbAndOlauerSplash"]
+position = Vector2( 0, 16 )
+frames = ExtResource( 6 )
+frame = 1
+playing = true

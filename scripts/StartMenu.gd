@@ -8,7 +8,8 @@ onready var _sound = get_tree().get_root().get_node("Sound")
 onready var level_manager = get_tree().get_root().get_node("LevelManager")
 
 func _ready():
-	_sound.try_play("Startup")
+#	_sound.try_play("Startup")
+	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up") and index > 0:

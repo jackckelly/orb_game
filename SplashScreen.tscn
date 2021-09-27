@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/SplashScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/Olauer.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://assets/Orb.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://scripts/PressStartSplash.gd" type="Script" id=7]
+[ext_resource path="res://scripts/OrbGameSplash.gd" type="Script" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -34,16 +35,16 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = -0.5
+margin_top = 48.0
 margin_right = 128.0
-margin_bottom = 29.5
+margin_bottom = 78.0
 rect_scale = Vector2( 4, 4 )
 size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Orb Game" type="Label" parent="CenterContainer"]
+[node name="OrbGameSplash" type="Label" parent="CenterContainer"]
 margin_left = 36.0
 margin_top = 8.0
 margin_right = 91.0
@@ -52,20 +53,23 @@ custom_fonts/font = ExtResource( 2 )
 text = "Orb Game"
 align = 1
 uppercase = true
+percent_visible = 0.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 margin_left = 176.0
-margin_top = 128.0
+margin_top = 168.0
 margin_right = 334.0
-margin_bottom = 168.0
+margin_bottom = 208.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PressStartSplash" type="Label" parent="CenterContainer2"]
+visible = false
 margin_top = 13.0
 margin_right = 158.0
 margin_bottom = 26.0
@@ -74,8 +78,10 @@ text = "Press [Start] to continue"
 uppercase = true
 script = ExtResource( 7 )
 
+[node name="BlinkTimer" type="Timer" parent="CenterContainer2/PressStartSplash"]
+
 [node name="OrbAndOlauerSplash" type="Node2D" parent="."]
-position = Vector2( -8, 152 )
+position = Vector2( -8, 104 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -91,3 +97,10 @@ position = Vector2( 0, 16 )
 frames = ExtResource( 6 )
 frame = 1
 playing = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="OrbAndOlauerSplash"]
+
+[connection signal="timeout" from="CenterContainer2/PressStartSplash/BlinkTimer" to="CenterContainer2/PressStartSplash" method="_on_BlinkTimer_timeout"]
+[connection signal="screen_entered" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="OrbAndOlauerSplash" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="OrbAndOlauerSplash" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="CenterContainer2/PressStartSplash" method="_on_VisibilityNotifier2D_screen_exited"]

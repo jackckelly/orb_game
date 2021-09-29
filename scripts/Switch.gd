@@ -17,29 +17,41 @@ export var on = false
 
 var off_map = null
 var on_map  = null
+
+var on_root = null
+var off_root = null
+
 var overlay_off = null
-var overlay_on = null 
+var overlay_on = null
+
 onready var _animated_sprite = $AnimatedSprite
 onready var _sound = get_tree().get_root().get_node("Sound")
 
 func _ready():
 	
-	off_map = self.get_node("OffMap")
-	on_map = self.get_node("OnMap")
+	off_root = self.get_node("OffRoot")
+	on_root = self.get_node("OnRoot")
+
+	off_map = off_root.get_node("OffMap")
+	on_map = on_root.get_node("OnMap")
 	overlay_off = self.get_node("OverlayOff")
 	overlay_on = self.get_node("OverlayOn")
 	
 	if !on:
-		self.remove_child(on_map)
+		self.remove_child(on_root)
 		overlay_off.visible = false
 	else:
-		self.remove_child(off_map)
+		self.remove_child(off_root)
 		overlay_on.visible = false
 
 	connect("body_entered", self, "on_body_entered")
 	
+	# right now this only handles the tilemaps
+	# todo: determine intended behavior for switches/win conditions
+
 	var off_cells = []
 	var on_cells = []
+	
 	for child_map in off_map.get_children():
 		off_cells = off_cells + child_map.get_used_cells()
 	
@@ -70,14 +82,14 @@ func on_body_entered(body):
 		_animated_sprite.animation = color_data[color][3]
 		
 
-	off_map.visible    = !on
+	#off_root.visible    = !on
 	overlay_off.visible = on
-	on_map.visible     =  on
+	#on_root.visible     =  on
 	overlay_on.visible = !on
 	
 	if on:
-		self.remove_child(off_map)
-		self.add_child(on_map)
+		self.remove_child(off_root)
+		self.add_child(on_root)
 	else:
-		self.remove_child(on_map)
-		self.add_child(off_map)
+		self.remove_child(on_root)
+		self.add_child(off_root)

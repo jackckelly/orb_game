@@ -7,7 +7,6 @@
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 248, 248 )
-nextLevel = "orb_bounce"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 248, 72 )
@@ -15,28 +14,22 @@ position = Vector2( 248, 72 )
 [node name="LeftSwitch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 168, 72 )
 
-[node name="Passing Blocks" parent="LeftSwitch/OffMap" index="2"]
+[node name="Passing Blocks" parent="LeftSwitch/OffRoot/OffMap" index="2"]
 tile_data = PoolIntArray( -131069, 7, 0, -131068, 7, 0, -131067, 7, 0, -65533, 7, 0, -65531, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0 )
-
-[node name="OnMap" parent="LeftSwitch" index="1"]
-visible = false
 
 [node name="RightSwitch" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 296, 72 )
 color = 1
 
-[node name="Spikes" parent="RightSwitch/OffMap" index="4"]
+[node name="Spikes" parent="RightSwitch/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( 131067, 3, 0, 131068, 3, 0, 131069, 3, 0 )
 
-[node name="OnMap" parent="RightSwitch" index="1"]
-visible = false
-
-[node name="Absorb Blocks" parent="RightSwitch/OnMap" index="3"]
+[node name="Absorb Blocks" parent="RightSwitch/OnRoot/OnMap" index="3"]
 tile_data = PoolIntArray( -65544, 6, 0, -65543, 6, 0, -65542, 6, 0, -8, 6, 0, -7, 6, 0, -6, 6, 0, 65528, 6, 0, 65529, 6, 0, 65530, 6, 0 )
 
 [editable path="Map"]
 [editable path="LeftSwitch"]
-[editable path="LeftSwitch/OffMap"]
+[editable path="LeftSwitch/OffRoot/OffMap"]
 [editable path="RightSwitch"]
-[editable path="RightSwitch/OffMap"]
-[editable path="RightSwitch/OnMap"]
+[editable path="RightSwitch/OffRoot/OffMap"]
+[editable path="RightSwitch/OnRoot/OnMap"]

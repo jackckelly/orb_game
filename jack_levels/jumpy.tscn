@@ -18,24 +18,20 @@ position = Vector2( 384, 144 )
 position = Vector2( 344, 152 )
 color = 1
 
-[node name="OnMap" parent="Right" index="1"]
-visible = false
 
-[node name="Bouncing Blocks" parent="Right/OnMap" index="0"]
+[node name="Bouncing Blocks" parent="Right/OnRoot/OnMap" index="0"]
 tile_data = PoolIntArray( -393219, 5, 0, -327683, 5, 0, -262147, 5, 0, -196611, 5, 0, -131075, 5, 0, -65539, 5, 0, -3, 5, 0 )
 
 [node name="Left" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 200, 152 )
 
-[node name="Bouncing Blocks" parent="Left/OffMap" index="0"]
+[node name="Bouncing Blocks" parent="Left/OffRoot/OffMap" index="0"]
 tile_data = PoolIntArray( -458749, 5, 0, -393213, 5, 0, -327677, 5, 0, -262141, 5, 0, -196605, 5, 0, -131069, 5, 0, -65533, 5, 0 )
 
-[node name="OnMap" parent="Left" index="1"]
-visible = false
 
 [editable path="Map"]
 [editable path="Right"]
-[editable path="Right/OffMap"]
-[editable path="Right/OnMap"]
+[editable path="Right/OffRoot/OffMap"]
+[editable path="Right/OnRoot/OnMap"]
 [editable path="Left"]
-[editable path="Left/OffMap"]
+[editable path="Left/OffRoot/OffMap"]

@@ -29,45 +29,45 @@ position = Vector2( 40, 264 )
 [node name="Upswitch1" parent="." index="3" instance=ExtResource( 1 )]
 position = Vector2( 408, 200 )
 
-[node name="Spikes" parent="Upswitch1/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch1/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch2" parent="." index="4" instance=ExtResource( 1 )]
 position = Vector2( 440, 184 )
 color = 1
 
-[node name="Spikes" parent="Upswitch2/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch2/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -131074, 3, 0 )
 
 [node name="Upswitch3" parent="." index="5" instance=ExtResource( 1 )]
 position = Vector2( 408, 168 )
 color = 2
 
-[node name="Spikes" parent="Upswitch3/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch3/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch4" parent="." index="6" instance=ExtResource( 1 )]
 position = Vector2( 408, 152 )
 color = 3
 
-[node name="Spikes" parent="Upswitch4/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch4/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch5" parent="." index="7" instance=ExtResource( 1 )]
 position = Vector2( 440, 136 )
 color = 4
 
-[node name="Spikes" parent="Upswitch5/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch5/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -131074, 3, 0 )
 
 [editable path="Map"]
 [editable path="Upswitch1"]
-[editable path="Upswitch1/OffMap"]
+[editable path="Upswitch1/OffRoot/OffMap"]
 [editable path="Upswitch2"]
-[editable path="Upswitch2/OffMap"]
+[editable path="Upswitch2/OffRoot/OffMap"]
 [editable path="Upswitch3"]
-[editable path="Upswitch3/OffMap"]
+[editable path="Upswitch3/OffRoot/OffMap"]
 [editable path="Upswitch4"]
-[editable path="Upswitch4/OffMap"]
+[editable path="Upswitch4/OffRoot/OffMap"]
 [editable path="Upswitch5"]
-[editable path="Upswitch5/OffMap"]
+[editable path="Upswitch5/OffRoot/OffMap"]

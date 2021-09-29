@@ -30,115 +30,115 @@ position = Vector2( 40, 264 )
 [node name="Upswitch1" parent="." index="3" instance=ExtResource( 1 )]
 position = Vector2( 408, 200 )
 
-[node name="Spikes" parent="Upswitch1/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch1/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch2" parent="." index="4" instance=ExtResource( 1 )]
 position = Vector2( 440, 184 )
 color = 1
 
-[node name="Spikes" parent="Upswitch2/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch2/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -131074, 3, 0 )
 
 [node name="Upswitch3" parent="." index="5" instance=ExtResource( 1 )]
 position = Vector2( 408, 168 )
 color = 2
 
-[node name="Spikes" parent="Upswitch3/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch3/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch4" parent="." index="6" instance=ExtResource( 1 )]
 position = Vector2( 408, 152 )
 color = 3
 
-[node name="Spikes" parent="Upswitch4/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch4/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -196608, 3, 0 )
 
 [node name="Upswitch5" parent="." index="7" instance=ExtResource( 1 )]
 position = Vector2( 440, 136 )
 color = 4
 
-[node name="Spikes" parent="Upswitch5/OffMap" index="4"]
+[node name="Spikes" parent="Upswitch5/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( -131074, 3, 0 )
 
 [node name="Step1" parent="." index="8" instance=ExtResource( 1 )]
 position = Vector2( 376, 88 )
 
-[node name="Passing Blocks" parent="Step1/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step1/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( -131072, 2, 3 )
 
 [node name="Step2" parent="." index="9" instance=ExtResource( 1 )]
 position = Vector2( 392, 40 )
 
-[node name="Passing Blocks" parent="Step2/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step2/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( 131070, 2, 3 )
 
 [node name="Step3" parent="." index="10" instance=ExtResource( 1 )]
 position = Vector2( 344, 88 )
 color = 1
 
-[node name="Passing Blocks" parent="Step3/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step3/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( -131072, 2, 3 )
 
 [node name="Step4" parent="." index="11" instance=ExtResource( 1 )]
 position = Vector2( 360, 40 )
 color = 1
 
-[node name="Passing Blocks" parent="Step4/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step4/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( 131070, 2, 3 )
 
 [node name="Step5" parent="." index="12" instance=ExtResource( 1 )]
 position = Vector2( 312, 88 )
 color = 2
 
-[node name="Passing Blocks" parent="Step5/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step5/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( -131072, 2, 3 )
 
 [node name="Step6" parent="." index="13" instance=ExtResource( 1 )]
 position = Vector2( 328, 40 )
 color = 2
 
-[node name="Passing Blocks" parent="Step6/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step6/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( 131070, 2, 3 )
 
 [node name="Step7" parent="." index="14" instance=ExtResource( 1 )]
 position = Vector2( 280, 88 )
 color = 3
 
-[node name="Passing Blocks" parent="Step7/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step7/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( -131072, 2, 3 )
 
 [node name="Step8" parent="." index="15" instance=ExtResource( 1 )]
 position = Vector2( 296, 40 )
 color = 3
 
-[node name="Passing Blocks" parent="Step8/OnMap" index="2"]
+[node name="Passing Blocks" parent="Step8/OnRoot/OnMap" index="2"]
 tile_data = PoolIntArray( 131070, 2, 3 )
 
 [editable path="Map"]
 [editable path="Upswitch1"]
-[editable path="Upswitch1/OffMap"]
+[editable path="Upswitch1/OffRoot/OffMap"]
 [editable path="Upswitch2"]
-[editable path="Upswitch2/OffMap"]
+[editable path="Upswitch2/OffRoot/OffMap"]
 [editable path="Upswitch3"]
-[editable path="Upswitch3/OffMap"]
+[editable path="Upswitch3/OffRoot/OffMap"]
 [editable path="Upswitch4"]
-[editable path="Upswitch4/OffMap"]
+[editable path="Upswitch4/OffRoot/OffMap"]
 [editable path="Upswitch5"]
-[editable path="Upswitch5/OffMap"]
+[editable path="Upswitch5/OffRoot/OffMap"]
 [editable path="Step1"]
-[editable path="Step1/OnMap"]
+[editable path="Step1/OnRoot/OnMap"]
 [editable path="Step2"]
-[editable path="Step2/OnMap"]
+[editable path="Step2/OnRoot/OnMap"]
 [editable path="Step3"]
-[editable path="Step3/OnMap"]
+[editable path="Step3/OnRoot/OnMap"]
 [editable path="Step4"]
-[editable path="Step4/OnMap"]
+[editable path="Step4/OnRoot/OnMap"]
 [editable path="Step5"]
-[editable path="Step5/OnMap"]
+[editable path="Step5/OnRoot/OnMap"]
 [editable path="Step6"]
-[editable path="Step6/OnMap"]
+[editable path="Step6/OnRoot/OnMap"]
 [editable path="Step7"]
-[editable path="Step7/OnMap"]
+[editable path="Step7/OnRoot/OnMap"]
 [editable path="Step8"]
-[editable path="Step8/OnMap"]
+[editable path="Step8/OnRoot/OnMap"]

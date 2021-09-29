@@ -24,12 +24,9 @@ nextLevel = "3_switch"
 [node name="Switch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 200, 152 )
 
-[node name="OnMap" parent="Switch" index="1"]
-visible = false
-
-[node name="Bouncing Blocks" parent="Switch/OnMap" index="0"]
+[node name="Bouncing Blocks" parent="Switch/OnRoot/OnMap" index="0"]
 tile_data = PoolIntArray( -65541, 5, 0 )
 
 [editable path="Map"]
 [editable path="Switch"]
-[editable path="Switch/OnMap"]
+[editable path="Switch/OnRoot/OnMap"]

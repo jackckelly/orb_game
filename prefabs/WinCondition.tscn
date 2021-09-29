@@ -277,7 +277,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-nextLevel = "Level2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -286,6 +285,7 @@ shape = SubResource( 1 )
 position = Vector2( 1.42622, -0.713112 )
 frames = SubResource( 64 )
 animation = "New Anim"
+frame = 57
 playing = true
 
 [node name="LevelSwitchTimer" type="Timer" parent="."]

@@ -2,7 +2,7 @@ extends Area2D
 
 
 # references
-onready var olauer = get_parent().get_node("Olauer")
+onready var olauer = get_tree().get_root().get_node("Level/Olauer")
 onready var _sound = get_tree().get_root().get_node("Sound")
 onready var level_manager = get_tree().get_root().get_node("LevelManager")
 # states
@@ -21,7 +21,7 @@ func _process(delta):
 		return
 	
 	# spiral animation
-	var olauer_to_center = self.transform.origin - olauer.transform.origin
+	var olauer_to_center = self.global_position - olauer.transform.origin
 	
 	# we set the orbital velocity
 	var orbital_velocity = olauer_to_center.rotated(deg2rad(90) - tip_angle)
@@ -36,9 +36,7 @@ func on_body_entered(body):
 	level_switch_timer.connect("timeout", self, "change_level")
 	level_switch_timer.start()
 	
-	var orbs = get_parent().get_node("OrbManager")
-	
-	var olauer = get_parent().get_node("Olauer")
+	var orbs = get_tree().get_root().get_node('Level/OrbManager')
 	
 	olauer.is_win_locked = true
 	olauer.set_collision_layer(0)
@@ -46,7 +44,7 @@ func on_body_entered(body):
 	in_win_animation = true
 
 func change_level():
-	var notifier = get_parent().get_node("Olauer/VisibilityNotifier2D")
+	var notifier =  get_tree().get_root().get_node("Level/Olauer/VisibilityNotifier2D")
 	olauer.remove_child(notifier)
 	level_manager.next_level()
 

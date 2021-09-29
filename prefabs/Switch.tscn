@@ -10,15 +10,15 @@ radius = 8.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 48, 16, 16 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 16, 16, 16 )
+region = Rect2( 0, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 64, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
@@ -26,19 +26,19 @@ region = Rect2( 16, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 16, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 64, 16, 16 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 48, 16, 16 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 16, 16 )
+region = Rect2( 0, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
@@ -46,23 +46,23 @@ region = Rect2( 16, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 32, 16, 16 )
+region = Rect2( 16, 64, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
-"name": "blue_off",
+"name": "tan_off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "tan_off",
+"name": "blue_off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
-"name": "white_off",
+"name": "gray_off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
@@ -72,22 +72,22 @@ animations = [ {
 }, {
 "frames": [ SubResource( 6 ) ],
 "loop": true,
-"name": "white_on",
+"name": "blue_on",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 7 ) ],
 "loop": true,
-"name": "gray_on",
+"name": "white_on",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 8 ) ],
 "loop": true,
-"name": "blue_on",
+"name": "white_off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
-"name": "gray_off",
+"name": "pink_off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ) ],
@@ -97,7 +97,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 11 ) ],
 "loop": true,
-"name": "pink_off",
+"name": "gray_on",
 "speed": 5.0
 } ]
 

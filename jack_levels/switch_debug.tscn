@@ -12,9 +12,24 @@ tile_data = PoolIntArray( 655366, 0, 0, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1
 [node name="Switch" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 216, 152 )
 
-[node name="WinCondition" parent="Switch/OnRoot" index="0" instance=ExtResource( 3 )]
+[node name="Switch" parent="Switch/OnRoot" index="0" instance=ExtResource( 2 )]
+position = Vector2( -168, 0 )
+
+[node name="Bouncing Blocks" parent="Switch/OnRoot/Switch/OffRoot/OffMap" index="0"]
+tile_data = PoolIntArray( -65539, 0, 0, -65538, 0, 1, -65537, 0, 1, -131072, 0, 2 )
+
+[node name="WinCondition" parent="Switch/OnRoot/Switch/OnRoot" index="0" instance=ExtResource( 3 )]
+position = Vector2( 224, -8 )
+
+[node name="Absorb Blocks" parent="Switch/OnRoot/Switch/OnRoot/OnMap" index="3"]
+tile_data = PoolIntArray( -262133, 1, 65539, -196597, 1, 131075, -131061, 1, 131075, -65525, 1, 196611 )
+
+[node name="WinCondition" parent="Switch/OnRoot" index="1" instance=ExtResource( 3 )]
 position = Vector2( -104, -8 )
 
 [editable path="Map"]
 [editable path="Switch"]
+[editable path="Switch/OnRoot/Switch"]
+[editable path="Switch/OnRoot/Switch/OffRoot/OffMap"]
+[editable path="Switch/OnRoot/Switch/OnRoot/OnMap"]
 [editable path="Switch/OnRoot/OnMap"]

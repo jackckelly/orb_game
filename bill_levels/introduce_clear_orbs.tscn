@@ -23,9 +23,9 @@ position = Vector2( 152, 152 )
 [node name="Switch" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 216, 216 )
 
-[node name="Absorb Blocks" parent="Switch/OnMap" index="3"]
+[node name="Absorb Blocks" parent="Switch/OnRoot/OnMap" index="3"]
 tile_data = PoolIntArray( -196611, 6, 0, -196610, 6, 0, -196609, 6, 0, -262144, 6, 0, -262143, 6, 0, -262142, 6, 0, -262141, 6, 0, -262140, 6, 0, -262139, 6, 0, -262138, 6, 0, -262137, 6, 0, -262136, 6, 0 )
 
 [editable path="Map"]
 [editable path="Switch"]
-[editable path="Switch/OnMap"]
+[editable path="Switch/OnRoot/OnMap"]

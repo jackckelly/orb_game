@@ -24,9 +24,6 @@ color = 1
 [node name="Spikes" parent="RightSwitch/OffRoot/OffMap" index="4"]
 tile_data = PoolIntArray( 131067, 3, 0, 131068, 3, 0, 131069, 3, 0 )
 
-[node name="OnRoot" parent="RightSwitch" index="1"]
-visible = false
-
 [node name="Absorb Blocks" parent="RightSwitch/OnRoot/OnMap" index="3"]
 tile_data = PoolIntArray( -65544, 6, 0, -65543, 6, 0, -65542, 6, 0, -8, 6, 0, -7, 6, 0, -6, 6, 0, 65528, 6, 0, 65529, 6, 0, 65530, 6, 0 )
 

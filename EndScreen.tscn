@@ -71,12 +71,12 @@ __meta__ = {
 }
 
 [node name="FollowUp" type="Label" parent="CenterContainer3"]
-margin_left = 186.0
+margin_left = 175.0
 margin_top = 218.0
-margin_right = 325.0
+margin_right = 337.0
 margin_bottom = 231.0
 custom_fonts/font = ExtResource( 2 )
-text = "PRESS [RETURN] TO EXIT."
+text = "PRESS [RETURN] TO RESTART."
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false

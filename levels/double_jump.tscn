@@ -9,7 +9,6 @@ tile_data = PoolIntArray( 589847, 0, 65539, 655383, 0, 131075, 720903, 0, 0, 720
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 352, 160 )
-nextLevel = "pass_timing"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 136, 168 )

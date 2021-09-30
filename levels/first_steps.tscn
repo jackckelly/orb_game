@@ -9,6 +9,5 @@ tile_data = PoolIntArray( 589831, 0, 65539, 589847, 0, 65539, 655367, 0, 327682,
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 344, 144 )
-nextLevel = "a_little_longer"
 
 [editable path="Map"]

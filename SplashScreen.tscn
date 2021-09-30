@@ -90,7 +90,7 @@ __meta__ = {
 [node name="OlauerAnimation" type="AnimatedSprite" parent="OrbAndOlauerSplash"]
 frames = ExtResource( 5 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="OrbAnimation" type="AnimatedSprite" parent="OrbAndOlauerSplash"]
@@ -103,5 +103,5 @@ playing = true
 
 [connection signal="timeout" from="CenterContainer2/PressStartSplash/BlinkTimer" to="CenterContainer2/PressStartSplash" method="_on_BlinkTimer_timeout"]
 [connection signal="screen_entered" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="OrbAndOlauerSplash" method="_on_VisibilityNotifier2D_screen_entered"]
-[connection signal="screen_exited" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="OrbAndOlauerSplash" method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="screen_exited" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="CenterContainer2/PressStartSplash" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="OrbAndOlauerSplash/VisibilityNotifier2D" to="OrbAndOlauerSplash" method="_on_VisibilityNotifier2D_screen_exited"]

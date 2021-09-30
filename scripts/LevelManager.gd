@@ -7,6 +7,8 @@ extends Node2D
 var current_level = 0
 
 var levels = [
+	"intro_by_the_xx",
+	"first_switch",
 	"first_steps",
 	"a_little_longer",
 	"pit",

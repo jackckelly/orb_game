@@ -3,7 +3,7 @@ extends PopupPanel
 var enabled = false
 
 func _process(delta):
-	if enabled and Input.is_action_just_pressed("ui_accept"):
+	if enabled and Input.is_action_just_pressed("ui_pause"):
 		var was_paused = get_tree().paused
 
 		if was_paused:

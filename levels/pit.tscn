@@ -1,17 +1,74 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://prefabs/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/pit.gd" type="Script" id=2]
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/icons-controller-16x16-1bit-ansdor.png" type="Texture" id=4]
+[ext_resource path="res://assets/icons-keyboard-16x16-1bit-ansdor.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 64, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 80, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 80, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 3 ) ],
+"loop": true,
+"name": "controller",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "keyboard",
+"speed": 5.0
+} ]
 
 [node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="Bouncing Blocks" parent="Map" index="0"]
 tile_data = PoolIntArray( 589836, 0, 65536, 589837, 0, 65538, 589843, 0, 65536, 589844, 0, 65538, 655372, 0, 131072, 655373, 0, 131074, 655379, 0, 131072, 655380, 0, 131074, 720908, 0, 131072, 720909, 0, 131074, 720915, 0, 131072, 720916, 0, 131074, 786444, 0, 131072, 786445, 0, 131074, 786451, 0, 131072, 786452, 0, 131074, 851980, 0, 131072, 851981, 0, 327680, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 327681, 851988, 0, 131074, 917516, 0, 196608, 917517, 0, 196609, 917518, 0, 196609, 917519, 0, 196609, 917520, 0, 196609, 917521, 0, 196609, 917522, 0, 196609, 917523, 0, 196609, 917524, 0, 196610 )
 
 [node name="WinCondition" parent="." index="1"]
 position = Vector2( 320, 128 )
-nextLevel = "wall"
 
 [node name="Olauer" parent="." index="2"]
 position = Vector2( 264, 200 )
+
+[node name="ClearButton" type="AnimatedSprite" parent="." index="6"]
+visible = false
+position = Vector2( 248, 152 )
+frames = SubResource( 2 )
+animation = "keyboard"
+playing = true
+
+[node name="Label" type="Label" parent="ClearButton" index="0"]
+margin_left = 16.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 3 )
+text = "clear"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ClearButton" index="1"]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="ClearButton/Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Map"]

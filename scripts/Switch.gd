@@ -5,7 +5,7 @@ enum color_type {WHITE, TAN, PINK, BLUE, GRAY}
 
 export var color = 0
 
-var color_data = {
+const color_data = {
 	0: [0, 1, 'white_on', 'white_off'],
 	1: [2, 3, 'tan_on', 'tan_off'],
 	2: [4, 5, 'pink_on', 'pink_off'],

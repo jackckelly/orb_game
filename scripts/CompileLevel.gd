@@ -6,9 +6,33 @@ const CompileMap = preload('res://scripts/CompileMap.gd')
 
 export var compile = false
 
+var eds = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if Engine.editor_hint:
+		eds = EditorPlugin.new().get_editor_interface().get_selection()
+		print("ready(): " + str(eds))
+		eds.connect("selection_changed", self, "_on_selection_changed")
+
+func _on_selection_changed():
+	print("signal fired: " + str(eds))
+	
+	for child in self.get_children():
+		if child is SwitchMap:
+			child.get_node("Off/Edit").set_modulate(Color(1, 1, 1, 0.5))
+			child.get_node("Off/Overlay").set_modulate(Color(1, 1, 1, 0.5))
+			child.get_node("On/Edit").set_modulate(Color(1, 1, 1, 0.5))
+			child.get_node("On/Overlay").set_modulate(Color(1, 1, 1, 0.5))
+		if child is CompileMap:
+			child.get_node("Edit").set_modulate(Color(1, 1, 1, 0.5))
+
+	var sel = eds.get_selected_nodes()
+
+	for selected_node in sel:
+		if selected_node is TileMap:
+			selected_node.set_modulate(Color(1, 1, 1, 1))
+	
 
 func compile_all():
 	for child in self.get_children():

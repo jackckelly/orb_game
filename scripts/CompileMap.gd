@@ -11,7 +11,7 @@ var SWITCH_RED_ID = 6
 var SWITCH_BLUE_ID = 7
 var OVERLAY_ID = 8
 
-export var compile = false
+var compile = false
 
 func _ready():
 	if Engine.editor_hint:

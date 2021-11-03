@@ -11,13 +11,11 @@ var eds = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Engine.editor_hint:
-		eds = EditorPlugin.new().get_editor_interface().get_selection()
-		print("ready(): " + str(eds))
+		var ep = EditorPlugin.new()
+		eds = ep.get_editor_interface().get_selection()
 		eds.connect("selection_changed", self, "_on_selection_changed")
 
 func _on_selection_changed():
-	print("signal fired: " + str(eds))
-	
 	for child in self.get_children():
 		if child is SwitchMap:
 			child.get_node("Off/Edit").set_modulate(Color(1, 1, 1, 0.5))
@@ -32,7 +30,6 @@ func _on_selection_changed():
 	for selected_node in sel:
 		if selected_node is TileMap:
 			selected_node.set_modulate(Color(1, 1, 1, 1))
-	
 
 func compile_all():
 	for child in self.get_children():

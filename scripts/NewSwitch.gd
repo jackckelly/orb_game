@@ -8,7 +8,7 @@ var switch_map = null
 export var switch_map_name = 'SwitchMap'
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	switch_map = get_parent().get_node(switch_map_name)
+	switch_map = get_tree().get_root().get_node("Level").get_node(switch_map_name)
 	connect("body_entered", self, "on_body_entered")
 
 func update_appearance():	

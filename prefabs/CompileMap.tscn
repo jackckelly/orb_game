@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/CompileMap.gd" type="Script" id=1]
+[ext_resource path="res://main_tileset.tres" type="TileSet" id=2]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Edit" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+
+[node name="Compiled" type="Node2D" parent="."]
+visible = false
+
+[node name="Bouncing Blocks" type="TileMap" parent="Compiled"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+
+[node name="Corners" type="TileMap" parent="Compiled"]
+z_index = -3
+z_as_relative = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 128
+collision_mask = 128
+format = 1
+
+[node name="Passing Blocks" type="TileMap" parent="Compiled"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 2
+collision_mask = 2
+format = 1
+
+[node name="Absorb Blocks" type="TileMap" parent="Compiled"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+collision_layer = 3
+collision_mask = 3
+format = 1
+
+[node name="Spikes" type="TileMap" parent="Compiled"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 32
+format = 1

@@ -16,20 +16,35 @@ func _ready():
 		eds.connect("selection_changed", self, "_on_selection_changed")
 
 func _on_selection_changed():
-	for child in self.get_children():
-		if child is SwitchMap:
-			child.get_node("Off/Edit").set_modulate(Color(1, 1, 1, 0.5))
-			child.get_node("Off/Overlay").set_modulate(Color(1, 1, 1, 0.5))
-			child.get_node("On/Edit").set_modulate(Color(1, 1, 1, 0.5))
-			child.get_node("On/Overlay").set_modulate(Color(1, 1, 1, 0.5))
-		if child is CompileMap:
-			child.get_node("Edit").set_modulate(Color(1, 1, 1, 0.5))
-
 	var sel = eds.get_selected_nodes()
 
+	var selected_tilemap = false
 	for selected_node in sel:
 		if selected_node is TileMap:
-			selected_node.set_modulate(Color(1, 1, 1, 1))
+			selected_tilemap = true
+			break
+	
+	if selected_tilemap:
+		for child in self.get_children():
+			if child is SwitchMap:
+				child.get_node("Off/Edit").set_modulate(Color(1, 1, 1, 0.5))
+				child.get_node("Off/Overlay").set_modulate(Color(1, 1, 1, 0.5))
+				child.get_node("On/Edit").set_modulate(Color(1, 1, 1, 0.5))
+				child.get_node("On/Overlay").set_modulate(Color(1, 1, 1, 0.5))
+			if child is CompileMap:
+				child.get_node("Edit").set_modulate(Color(1, 1, 1, 0.5))
+		for selected_node in sel:
+			if selected_node is TileMap:
+				selected_node.set_modulate(Color(1, 1, 1, 1))
+	else:
+		for child in self.get_children():
+			if child is SwitchMap:
+				child.get_node("Off/Edit").set_modulate(Color(1, 1, 1, 1))
+				child.get_node("Off/Overlay").set_modulate(Color(1, 1, 1, 1))
+				child.get_node("On/Edit").set_modulate(Color(1, 1, 1, 1))
+				child.get_node("On/Overlay").set_modulate(Color(1, 1, 1, 1))
+			if child is CompileMap:
+				child.get_node("Edit").set_modulate(Color(1, 1, 1, 1))
 
 func compile_all():
 	for child in self.get_children():
